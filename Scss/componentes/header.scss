@@ -1,0 +1,82 @@
+header{
+    background-color: #4A4A4A;
+    div{
+        .nav-bar-Sw{
+            div{
+                .a-logo{
+                    color: #e4ffc6;
+                }
+                div{
+                    ul{
+                        .li-item-normal{
+                            padding:  10%;
+                            transition: all;
+
+
+                            a{
+                                text-decoration: none;
+                                color: #e4ffc6;
+                                margin: 5px;
+                            }
+                        }  
+                        
+                        .li-item-normal:hover{
+                            transform: scale(1.2);
+                        }
+
+                        .li-item-tabla{
+                            padding:  10%;
+                            transition: all;
+                            position: relative;
+
+                            a{
+                                text-decoration: none;
+                                color: #e4ffc6;
+                                margin: 5px;
+                            }
+
+
+                            .dropdown-menu.show {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                grid-template-rows: 1fr 1fr;
+                                background-color: #576c89;
+                                border-radius: 5px;
+
+                                li{
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+
+                                    a{
+                                        text-decoration: none;
+                                        color:  #e4ffc6;
+                                        margin: 5px;
+                                        padding: 5px;
+                                        transition: all;
+                                    }
+
+                                    a:hover{
+                                        transform: scale(1.2);
+                                    }
+                                }
+                            }
+                        }
+
+                        
+                        
+                    }
+                }
+            }
+        }
+
+        .div-buscador{
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            form{
+                
+            }
+        }
+   }
+}
