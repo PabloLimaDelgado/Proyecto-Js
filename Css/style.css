@@ -1,60 +1,78 @@
 header {
   background-color: #4A4A4A;
+  padding: 0%;
+  margin: 0px;
 }
-header div .nav-bar-Sw div .a-logo {
+header .row {
+  margin-right: 0px;
+}
+header .row .nav-bar-Sw {
+  margin: 0px;
+}
+header .row .nav-bar-Sw div {
+  display: flex;
+  justify-content: space-evenly;
+}
+header .row .nav-bar-Sw div .a-logo {
   color: #e4ffc6;
+  margin-left: 5%;
 }
-header div .nav-bar-Sw div div ul .li-item-normal {
+header .row .nav-bar-Sw div div ul .li-item-normal {
   padding: 10%;
   transition: all;
 }
-header div .nav-bar-Sw div div ul .li-item-normal a {
+header .row .nav-bar-Sw div div ul .li-item-normal a {
   text-decoration: none;
-  color: #e4ffc6;
   margin: 5px;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #e4ffc6;
 }
-header div .nav-bar-Sw div div ul .li-item-normal:hover {
+header .row .nav-bar-Sw div div ul .li-item-normal:hover {
   transform: scale(1.2);
 }
-header div .nav-bar-Sw div div ul .li-item-tabla {
+header .row .nav-bar-Sw div div ul .li-item-tabla {
   padding: 10%;
   transition: all;
   position: relative;
 }
-header div .nav-bar-Sw div div ul .li-item-tabla a {
+header .row .nav-bar-Sw div div ul .li-item-tabla a {
   text-decoration: none;
   color: #e4ffc6;
   margin: 5px;
+  transition: all;
 }
-header div .nav-bar-Sw div div ul .li-item-tabla .dropdown-menu.show {
+header .row .nav-bar-Sw div div ul .li-item-tabla .dropdown-menu.show {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   background-color: #576c89;
   border-radius: 5px;
 }
-header div .nav-bar-Sw div div ul .li-item-tabla .dropdown-menu.show li {
+header .row .nav-bar-Sw div div ul .li-item-tabla .dropdown-menu.show li {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-header div .nav-bar-Sw div div ul .li-item-tabla .dropdown-menu.show li a {
+header .row .nav-bar-Sw div div ul .li-item-tabla .dropdown-menu.show li a {
   text-decoration: none;
   color: #e4ffc6;
   margin: 5px;
   padding: 5px;
-  transition: all;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
 }
-header div .nav-bar-Sw div div ul .li-item-tabla .dropdown-menu.show li a:hover {
+header .row .nav-bar-Sw div div ul .li-item-tabla .dropdown-menu.show li a:hover {
   transform: scale(1.2);
 }
-header div .div-buscador {
+header .row .div-buscador {
   display: flex;
   justify-content: end;
   align-items: center;
-}
-header div .div-buscador form .toggle-element {
-  display: none;
 }
 
 main div {
