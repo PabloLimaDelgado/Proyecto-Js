@@ -1,5 +1,3 @@
-/*
-
 //VARIBABLES GLOBALES
 
 let usuario = " "
@@ -93,7 +91,7 @@ function registrarse(){
 paginaPrincipal()
 
 
-do{
+while(salir != 4) {
     let genero = parseInt( prompt("Bienvenido " + usuario + "\nQue genero desea mirar" + "\n1. para Acción" + "\n2. para Comedia" + "\n3. para Drama" + "\n4. para salir") ) 
     switch (genero){
         case 1 : pelisAcción()
@@ -111,5 +109,6 @@ do{
         default : alert("Usted ingreso un numero incorrecto")
             break;
     }
-}while(salir != 4) */
+}
+
 
