@@ -12,6 +12,8 @@ header{
                 .a-logo{
                     color: #e4ffc6;
                     margin-left: 5%;
+                    font-family: 'Sigmar', cursive;
+                    font-size: 25px;
                 }
                 div{
                     ul{
@@ -28,6 +30,8 @@ header{
                                 white-space: nowrap;
                                 overflow: hidden;
                                 color: #e4ffc6;
+                                font-family: 'Nunito', sans-serif;
+                                font-size: 15px;
                             }
                         }  
                         
@@ -45,6 +49,8 @@ header{
                                 color: #e4ffc6;
                                 margin: 5px;
                                 transition: all;
+                                font-family: 'Nunito', sans-serif;
+                                font-size: 15px;
                             }
 
                             .dropdown-menu.show {
@@ -68,10 +74,8 @@ header{
                                         white-space: nowrap;
                                         overflow: hidden;
                                         width: 100%;
-                                    }
-
-                                    a:hover{
-                                        transform: scale(1.2);
+                                        font-family: 'Nunito', sans-serif;
+                                        font-size: 15px;
                                     }
                                 }
                             }

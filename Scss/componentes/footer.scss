@@ -1,0 +1,39 @@
+footer{
+    background-color: #4A4A4A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .div-logos{
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        justify-content: flex-start;
+        margin: 1%;
+        gap: 3%;
+        color: white;
+        cursor: pointer;
+        font-size: 1.5em;
+        font-weight: lighter;
+    
+    }
+    .div-enlaces{
+        display: grid;
+        width: 50%;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-content: center;
+        align-items: center;
+        margin: 1%;
+
+        a{
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            margin: 1%;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    }
+}

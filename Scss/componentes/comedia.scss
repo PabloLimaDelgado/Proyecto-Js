@@ -1,0 +1,74 @@
+main{
+    .peliculas-recomendadas{
+
+        .contenedor-titulo-controles{
+            display: flex;
+            overflow: hidden;
+            scroll-behavior: smooth;
+            flex-direction: column;
+
+            div{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                h3{
+                    color: #e4ffc6;
+                    font-size: 30px;
+                    font-family: 'Roboto Mono', monospace;
+                    scroll-margin-top: 90px;
+                }
+
+                .indicadores-comedia{
+                    button{
+                        background-color: #e4ffc6;
+                        height: 3px;
+                        width: 10px;
+                        cursor: pointer;
+                        border: none;
+                        margin-right: 2px;
+                    }
+                    button:hover{
+                        background-color: rgb(87, 108, 137)
+                    }
+    
+                    button.activo{
+                        background-color: rgb(87, 108, 137)
+                    }
+                }
+            }
+            .contenedor-principal{
+                display: flex;
+                align-items: center;
+                position: relative;
+                .contenedor-carrousel-comedia{
+                    width: 100%;
+                    padding: 20px 0;
+                    overflow: hidden;
+                    scroll-behavior: smooth;
+
+                    .carrousel-comedia{
+                        display: flex;
+                        flex-wrap: nowrap;
+                        .comedia{
+                            min-width: 20%;
+                            transition: .3s ease all;
+                            box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+                            a{
+                                img{
+                                    width: 100%;
+                                    vertical-align: top;
+                                }
+                            }  
+                        }
+
+                        .comedia:hover{
+                            transform: scale(1.2);
+                            transform-origin: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

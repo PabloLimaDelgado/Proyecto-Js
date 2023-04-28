@@ -16,6 +16,8 @@ header .row .nav-bar-Sw div {
 header .row .nav-bar-Sw div .a-logo {
   color: #e4ffc6;
   margin-left: 5%;
+  font-family: "Sigmar", cursive;
+  font-size: 25px;
 }
 header .row .nav-bar-Sw div div ul .li-item-normal {
   padding: 10%;
@@ -29,6 +31,8 @@ header .row .nav-bar-Sw div div ul .li-item-normal a {
   white-space: nowrap;
   overflow: hidden;
   color: #e4ffc6;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
 }
 header .row .nav-bar-Sw div div ul .li-item-normal:hover {
   transform: scale(1.2);
@@ -43,6 +47,8 @@ header .row .nav-bar-Sw div div ul .li-item-tabla a {
   color: #e4ffc6;
   margin: 5px;
   transition: all;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
 }
 header .row .nav-bar-Sw div div ul .li-item-tabla .dropdown-menu.show {
   display: grid;
@@ -65,9 +71,8 @@ header .row .nav-bar-Sw div div ul .li-item-tabla .dropdown-menu.show li a {
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
-}
-header .row .nav-bar-Sw div div ul .li-item-tabla .dropdown-menu.show li a:hover {
-  transform: scale(1.2);
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
 }
 header .row .div-buscador {
   display: flex;
@@ -75,7 +80,13 @@ header .row .div-buscador {
   align-items: center;
 }
 
-main .pelicula-principal {
+main {
+  background-color: #4A4A4A;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+main section .pelicula-principal {
   font-size: 16px;
   min-height: 40.62em;
   color: #e4ffc6;
@@ -85,22 +96,24 @@ main .pelicula-principal {
   display: flex;
   align-items: end;
   padding: 10px;
+  overflow-x: hidden;
 }
-main .pelicula-principal .contenedor .titulo {
-  font-weight: 600px;
+main section .pelicula-principal .contenedor .titulo {
   font-size: 50px;
   margin-bottom: 10px;
-  margin-left: 20px;
+  margin-left: 3.1%;
+  font-family: "Roboto Mono", monospace;
 }
-main .pelicula-principal .contenedor .descripcion {
+main section .pelicula-principal .contenedor .descripcion {
   font-weight: normal;
   font-size: 1em;
   line-height: 1.75em;
   max-width: 50%;
   margin-bottom: 15px;
-  margin-left: 20px;
+  margin-left: 3.1%;
+  font-family: "Nunito", sans-serif;
 }
-main .pelicula-principal .contenedor .boton {
+main section .pelicula-principal .contenedor .boton {
   background-color: rgba(0, 0, 0, 0.5);
   border: none;
   border-radius: 0.31em;
@@ -110,13 +123,278 @@ main .pelicula-principal .contenedor .boton {
   font-size: 1.12em;
   padding: 15px;
   margin: 20px;
+  font-family: "Nunito", sans-serif;
+  margin-left: 3.1%;
 }
-main .pelicula-principal .contenedor .boton i {
+main section .pelicula-principal .contenedor .boton i {
   margin-right: 10px;
 }
-main .pelicula-principal .contenedor .boton:hover {
+main section .pelicula-principal .contenedor .boton:hover {
+  background-color: rgb(87, 108, 137);
+  color: #e4ffc6;
+}
+main .peliculas-recomendadas {
+  width: 90%;
+  margin: 20px;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles {
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  flex-direction: column;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div h3 {
+  color: #e4ffc6;
+  font-size: 30px;
+  font-family: "Roboto Mono", monospace;
+  scroll-margin-top: 90px;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div .indicadores-estreno button {
   background-color: #e4ffc6;
-  color: #4A4A4A;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div .indicadores-estreno button:hover {
+  background-color: rgb(87, 108, 137);
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div .indicadores-estreno button.activo {
+  background-color: rgb(87, 108, 137);
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .flecha-izquierda {
+  position: absolute;
+  border: none;
+  background-color: rgba(87, 108, 137, 0.3);
+  font-size: 40px;
+  height: 50%;
+  top: 25%;
+  line-height: 40px;
+  width: 50px;
+  color: #e4ffc6;
+  cursor: pointer;
+  z-index: 500;
+  transition: 0.2s ease all;
+  left: 0;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .flecha-izquierda:hover {
+  background-color: rgba(87, 108, 137, 0.9);
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-estrenos {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-estrenos .carrousel-estrenos {
+  display: flex;
+  flex-wrap: nowrap;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-estrenos .carrousel-estrenos .estrenos {
+  min-width: 20%;
+  transition: 0.3s ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-estrenos .carrousel-estrenos .estrenos a img {
+  width: 100%;
+  vertical-align: top;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-estrenos .carrousel-estrenos .estrenos:hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .flecha-derecha {
+  position: absolute;
+  border: none;
+  background-color: rgba(87, 108, 137, 0.3);
+  font-size: 40px;
+  height: 50%;
+  top: 25%;
+  line-height: 40px;
+  width: 50px;
+  color: #e4ffc6;
+  cursor: pointer;
+  z-index: 500;
+  transition: 0.2s ease all;
+  right: 0;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .flecha-derecha:hover {
+  background-color: rgba(87, 108, 137, 0.9);
+}
+
+html {
+  overflow-x: hidden;
+}
+
+main .peliculas-recomendadas .contenedor-titulo-controles {
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  flex-direction: column;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div h3 {
+  color: #e4ffc6;
+  font-size: 30px;
+  font-family: "Roboto Mono", monospace;
+  scroll-margin-top: 90px;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div .indicadores-comedia button {
+  background-color: #e4ffc6;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div .indicadores-comedia button:hover {
+  background-color: rgb(87, 108, 137);
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div .indicadores-comedia button.activo {
+  background-color: rgb(87, 108, 137);
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-comedia {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-comedia .carrousel-comedia {
+  display: flex;
+  flex-wrap: nowrap;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-comedia .carrousel-comedia .comedia {
+  min-width: 20%;
+  transition: 0.3s ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-comedia .carrousel-comedia .comedia a img {
+  width: 100%;
+  vertical-align: top;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-comedia .carrousel-comedia .comedia:hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+footer {
+  background-color: #4A4A4A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .div-logos {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: flex-start;
+  margin: 1%;
+  gap: 3%;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5em;
+  font-weight: lighter;
+}
+footer .div-enlaces {
+  display: grid;
+  width: 50%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+}
+footer .div-enlaces a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  margin: 1%;
+}
+footer .div-enlaces a:hover {
+  text-decoration: underline;
+}
+
+main .peliculas-recomendadas .contenedor-titulo-controles {
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  flex-direction: column;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div h3 {
+  color: #e4ffc6;
+  font-size: 30px;
+  font-family: "Roboto Mono", monospace;
+  scroll-margin-top: 90px;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div .indicadores-accion button {
+  background-color: #e4ffc6;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div .indicadores-accion button:hover {
+  background-color: rgb(87, 108, 137);
+}
+main .peliculas-recomendadas .contenedor-titulo-controles div .indicadores-accion button.activo {
+  background-color: rgb(87, 108, 137);
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-accion {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-accion .carrousel-accion {
+  display: flex;
+  flex-wrap: nowrap;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-accion .carrousel-accion .accion {
+  min-width: 20%;
+  transition: 0.3s ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-accion .carrousel-accion .accion a img {
+  width: 100%;
+  vertical-align: top;
+}
+main .peliculas-recomendadas .contenedor-titulo-controles .contenedor-principal .contenedor-carrousel-accion .carrousel-accion .accion:hover {
+  transform: scale(1.2);
+  transform-origin: center;
 }
 
 

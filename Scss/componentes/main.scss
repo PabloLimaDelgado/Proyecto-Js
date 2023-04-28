@@ -1,50 +1,179 @@
 main{
-    .pelicula-principal{
-        font-size: 16px;
-        min-height: 40.62em;
-        color:  #e4ffc6;
-        background: linear-gradient(0deg, rgba(74,74,74,0.5) 58%, rgba(228,255,198,0.5)), url(../imagenes/avatar.jpg);
-        background-size: cover;
-        background-position:top;
-        display: flex;
-        align-items: end;
-        padding: 10px;
-        .contenedor{
-
-            .titulo{
-                font-weight: 600px;
-                font-size: 50px;
-                margin-bottom: 10px;
-                margin-left: 20px;
-            }
-            .descripcion{
-                font-weight: normal;
-                font-size: 1em;
-                line-height: 1.75em;
-                max-width: 50%;
-                margin-bottom: 15px;
-                margin-left: 20px;
-            }
-            .boton{
-                background-color: rgba(0, 0, 0, 0.5);
-                border: none;
-                border-radius: 0.31em;;
-                color: #e4ffc6;
-                cursor: pointer;
-                transition: .3s ease;
-                font-size: 1.12em;
-                padding: 15px;
-                margin: 20px;
-
-                i{
-                    margin-right: 10px;
+    background-color: #4A4A4A;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    section{
+        .pelicula-principal{
+            font-size: 16px;
+            min-height: 40.62em;
+            color:  #e4ffc6;
+            background: linear-gradient(0deg, rgba(74,74,74,0.5) 58%, rgba(228,255,198,0.5)), url(../imagenes/avatar.jpg);
+            background-size: cover;
+            background-position:top;
+            display: flex;
+            align-items: end;
+            padding: 10px;
+            overflow-x: hidden;
+            .contenedor{
+    
+                .titulo{
+                    font-size: 50px;
+                    margin-bottom: 10px;
+                    margin-left: 3.1%;
+                    font-family: 'Roboto Mono', monospace;
                 }
-            }
-
-            .boton:hover{
-                background-color: #e4ffc6;
-                color: #4A4A4A;
+                .descripcion{
+                    font-weight: normal;
+                    font-size: 1em;
+                    line-height: 1.75em;
+                    max-width: 50%;
+                    margin-bottom: 15px;
+                    margin-left: 3.1%;
+                    font-family: 'Nunito', sans-serif;
+                }
+                .boton{
+                    background-color: rgba(0, 0, 0, 0.5);
+                    border: none;
+                    border-radius: 0.31em;;
+                    color: #e4ffc6;
+                    cursor: pointer;
+                    transition: .3s ease;
+                    font-size: 1.12em;
+                    padding: 15px;
+                    margin: 20px;
+                    font-family: 'Nunito', sans-serif;
+                    margin-left: 3.1%;
+    
+                    i{
+                        margin-right: 10px;
+                    }
+                }
+    
+                .boton:hover{
+                    background-color: rgb(87, 108, 137);
+                    color:  #e4ffc6;
+                }
             }
         }
     }
+
+    .peliculas-recomendadas{
+        width: 90%;
+        margin: 20px;
+
+        .contenedor-titulo-controles{
+            display: flex;
+            overflow: hidden;
+            scroll-behavior: smooth;
+            flex-direction: column;
+
+            div{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                h3{
+                    color: #e4ffc6;
+                    font-size: 30px;
+                    font-family: 'Roboto Mono', monospace;
+                    scroll-margin-top: 90px;
+                }
+                .indicadores-estreno{
+                    button{
+                        background-color: #e4ffc6;
+                        height: 3px;
+                        width: 10px;
+                        cursor: pointer;
+                        border: none;
+                        margin-right: 2px;
+                    }
+                    button:hover{
+                        background-color: rgb(87, 108, 137)
+                    }
+    
+                    button.activo{
+                        background-color: rgb(87, 108, 137)
+                    }
+                }
+            }
+            .contenedor-principal{
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                .flecha-izquierda{
+                    position: absolute;
+                    border: none;
+                    background-color: rgba(87, 108, 137, 0.3);
+                    font-size: 40px;
+                    height: 50%;
+                    top: calc(50% - 25%);
+                    line-height: 40px;
+                    width: 50px;
+                    color: #e4ffc6;
+                    cursor: pointer;
+                    z-index: 500;
+                    transition: .2s ease all;
+                    left: 0;
+                }
+
+                .flecha-izquierda:hover{
+                    background-color: rgba(87, 108, 137, 0.9);
+                }
+                .contenedor-carrousel-estrenos{
+                    width: 100%;
+                    padding: 20px 0;
+                    overflow: hidden;
+                    scroll-behavior: smooth;
+
+                    .carrousel-estrenos{
+                        display: flex;
+                        flex-wrap: nowrap;
+                        .estrenos{
+                            min-width: 20%;
+                            transition: .3s ease all;
+                            box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+                            a{
+                                img{
+                                    width: 100%;
+                                    vertical-align: top;
+                                }
+                            }  
+                        }
+
+                        .estrenos:hover{
+                            transform: scale(1.2);
+                            transform-origin: center;
+                        }
+                    }
+                }
+
+                .flecha-derecha{
+                    position: absolute;
+                    border: none;
+                    background-color: rgba(87, 108, 137, 0.3);
+                    font-size: 40px;
+                    height: 50%;
+                    top: calc(50% - 25%);
+                    line-height: 40px;
+                    width: 50px;
+                    color: #e4ffc6;
+                    cursor: pointer;
+                    z-index: 500;
+                    transition: .2s ease all;
+                    right: 0;
+                }
+
+                .flecha-derecha:hover{
+                    background-color: rgba(87, 108, 137, 0.9);
+                }
+            }
+        }
+    }
+}
+
+
+html{
+    overflow-x:hidden;
 }

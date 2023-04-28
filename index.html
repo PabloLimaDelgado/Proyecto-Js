@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f98c94bad0.js" crossorigin="anonymous"></script>
     <script defer src="Js/indexjs.js"></script> 
     <link rel="stylesheet" href="Css/style.css">
@@ -22,10 +27,10 @@
                   <div class="collapse navbar-collapse col-xxl-6" id="navbarSupportedContent">
                     <ul class="navbar-nav me-autome-auto">
                       <li class="nav-item li-item-normal">
-                        <a class="active" aria-current="page" href="index.html">Inicio</a>
+                        <a class="active" aria-current="page" href="index.html#inicio">Inicio</a>
                       </li>
                       <li class="nav-item li-item-normal">
-                        <a class="" href="#">Estrenos</a>
+                        <a class="" href="index.html#Estrenos">Estrenos</a>
                       </li>
                       <li class="nav-item li-item-normal">
                         <a class="" href="#">Mi lista</a>
@@ -36,7 +41,7 @@
                         </a>
                           <ul class="dropdown-menu visible">
                             <li>
-                                <a href="index.html">Acción</a>
+                                <a href="index.html#accion">Acción</a>
                             </li>
 
                             <li>
@@ -44,7 +49,7 @@
                             </li>
 
                             <li>
-                              <a href="">Comedia</a>
+                              <a href="index.html#comedia">Comedia</a>
                             </li>
 
                             <li>
@@ -59,27 +64,220 @@
         </div>
     </header>
 
-    <main>
-      <div class="pelicula-principal">
-        <div class="contenedor">
-          <h3 class="titulo">
-            Avatar: The Way of Water
-          </h3>
-            <p class="descripcion">
-              Ambientada más de una década después de los acontecimientos de la primera película, 'Avatar: 
-              The Way of Water' empieza contando la historia de la familia Sully (Jake, Neytiri y sus hijos), 
-              los problemas que los persiguen, lo que tienen que hacer para mantenerse a salvo, las batallas que libran para 
-              seguir con vida y las tragedias que sufren.
-            </p>
+    <main id="inicio">
+      <section>
+        <div class="pelicula-principal">
+          <div class="contenedor">
+            <h3 class="titulo">
+              Avatar: The Way of Water
+            </h3>
+              <p class="descripcion">
+                Ambientada más de una década después de los acontecimientos de la primera película, 'Avatar: 
+                The Way of Water' empieza contando la historia de la familia Sully (Jake, Neytiri y sus hijos), 
+                los problemas que los persiguen, lo que tienen que hacer para mantenerse a salvo, las batallas que libran para 
+                seguir con vida y las tragedias que sufren.
+              </p>
+  
+              <button role="button" class="boton"> <i class="fa-solid fa-play"></i> Reproducir</button>
+              <button role="button" class="boton"> <i class="fa-solid fa-circle-info"></i> Mas información</button>
+          </div>
+        </div>
+      </section>
 
-            <button role="button" class="boton"> <i class="fa-solid fa-play"></i> Reproducir</button>
-            <button role="button" class="boton"> <i class="fa-solid fa-circle-info"></i> Mas información</button>
+
+      <div class="peliculas-recomendadas">
+        <div class="contenedor-titulo-controles">
+          <div>
+            <h3 id="Estrenos">Estrenos</h3>
+            <div class="indicadores-estreno"></div>
+          </div>
+          <div class="contenedor-principal">
+          <button role="button" id="flecha-izquierda1" class="flecha-izquierda"> <i class="fa-solid fa-angle-left"></i> </button>
+
+            <div class="contenedor-carrousel-estrenos">
+              <div class="carrousel-estrenos">
+                <div class="estrenos">
+                  <a href=""><img src="imagenes/intereslar.png" alt=""></a>
+                </div>
+
+                <div class="estrenos">
+                  <a href=""> <img src="imagenes/creed.jpg" alt=""></a>
+                </div>
+
+                <div class="estrenos">
+                  <a href=""> <img src="imagenes/jurasic world.jpg" alt=""></a>
+                </div>
+
+                <div class="estrenos">
+                  <a href=""> <img src="imagenes/mario bros.jpg" alt=""></a>
+                </div>
+
+                <div class="estrenos">
+                  <a href=""> <img src="imagenes/mandaloriano.jpg" alt=""></a>
+                </div>
+
+                <div class="estrenos">
+                  <a href=""> <img src="imagenes/juan wick.jpg" alt=""></a>
+                </div>
+
+                <div class="estrenos">
+                  <a href=""> <img src="imagenes/el exorsismo del papa.jpg" alt=""></a>
+                </div>
+
+                <div class="estrenos">
+                  <a href=""> <img src="imagenes/misterio a bordo 2.jpg" alt=""></a>
+                </div>
+
+                <div class="estrenos">
+                  <a href=""> <img src="imagenes/opreacion fortuna.jpg" alt=""></a>
+                </div>
+
+                <div class="estrenos">
+                  <a href=""> <img src="imagenes/ted lasso.jpg" alt=""></a>
+                </div>
+              </div>
+            </div>
+
+            <button role="button" id="flecha-derecha1" class="flecha-derecha"> <i class="fa-solid fa-angle-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="peliculas-recomendadas">
+        <div class="contenedor-titulo-controles">
+          <div>
+            <h3 id="accion">Accíon y aventura</h3>
+            <div class="indicadores-accion"></div>
+          </div>
+          <div class="contenedor-principal">
+          <button role="button" id="flecha-izquierda3" class="flecha-izquierda"> <i class="fa-solid fa-angle-left"></i> </button>
+
+            <div class="contenedor-carrousel-accion">
+              <div class="carrousel-accion">
+                <div class="accion">
+                  <a href=""><img src="imagenes/avatar.jpg" alt=""></a>
+                </div>
+
+                <div class="accion">
+                  <a href=""> <img src="imagenes/vikingos.jpg" alt=""></a>
+                </div>
+
+                <div class="accion">
+                  <a href=""> <img src="imagenes/el hobbit.jpg" alt=""></a>
+                </div>
+
+                <div class="accion">
+                  <a href=""> <img src="imagenes/creed.jpg" alt=""></a>
+                </div>
+
+                <div class="accion">
+                  <a href=""> <img src="imagenes/kingman.jpg" alt=""></a>
+                </div>
+
+                <div class="accion">
+                  <a href=""> <img src="imagenes/intereslar.png" alt=""></a>
+                </div>
+
+                <div class="accion">
+                  <a href=""> <img src="imagenes/juan wick.jpg" alt=""></a>
+                </div>
+
+                <div class="accion">
+                  <a href=""> <img src="imagenes/opreacion fortuna.jpg" alt=""></a>
+                </div>
+
+                <div class="accion">
+                  <a href=""> <img src="imagenes/sin novedad en el frente.jpg" alt=""></a>
+                </div>
+
+                <div class="accion">
+                  <a href=""> <img src="imagenes/mandaloriano.jpg" alt=""></a>
+                </div>
+              </div>
+            </div>
+
+            <button role="button" id="flecha-derecha3" class="flecha-derecha"> <i class="fa-solid fa-angle-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="peliculas-recomendadas">
+        <div class="contenedor-titulo-controles">
+          <div>
+            <h3 id="comedia">Comedia y familiar</h3>
+            <div class="indicadores-comedia"></div>
+          </div>
+          <div class="contenedor-principal">
+          <button role="button" id="flecha-izquierda2" class="flecha-izquierda"> <i class="fa-solid fa-angle-left"></i> </button>
+
+            <div class="contenedor-carrousel-comedia">
+              <div class="carrousel-comedia">
+                <div class="comedia">
+                  <a href=""><img src="imagenes/gato con botas.jpg" alt=""></a>
+                </div>
+
+                <div class="comedia">
+                  <a href=""> <img src="imagenes/ted lasso.jpg" alt=""></a>
+                </div>
+
+                <div class="comedia">
+                  <a href=""> <img src="imagenes/free guy.jpg" alt=""></a>
+                </div>
+
+                <div class="comedia">
+                  <a href=""> <img src="imagenes/jump street.jpg" alt=""></a>
+                </div>
+
+                <div class="comedia">
+                  <a href=""> <img src="imagenes/ted 2.jpg" alt=""></a>
+                </div>
+
+                <div class="comedia">
+                  <a href=""> <img src="imagenes/mario bros.jpg" alt=""></a>
+                </div>
+
+                <div class="comedia">
+                  <a href=""> <img src="imagenes/peacemaker.jpg" alt=""></a>
+                </div>
+
+                <div class="comedia">
+                  <a href=""> <img src="imagenes/misterio a bordo 2.jpg" alt=""></a>
+                </div>
+
+                <div class="comedia">
+                  <a href=""> <img src="imagenes/friends.jpg" alt=""></a>
+                </div>
+
+                <div class="comedia">
+                  <a href=""> <img src="imagenes/mandaloriano.jpg" alt=""></a>
+                </div>
+              </div>
+            </div>
+
+            <button role="button" id="flecha-derecha2" class="flecha-derecha"> <i class="fa-solid fa-angle-right"></i></button>
+          </div>
         </div>
       </div>
     </main>
 
     <footer>
-
+      <div class="div-logos">
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+      <div class="div-enlaces">
+        <a href="">Centro de ayuda</a>
+        <a href="">Empleo</a>
+        <a href="">Terminos de uso</a>
+        <a href="">Privacidad</a>
+        <a href="">Prensa</a>
+        <a href="">Contactanos</a>
+        <a href="">Tarjetas de regalo</a>
+        <a href="">Avisos legales</a>
+        <a href="">Preferencia de cokies</a>
+      </div>
     </footer>
     
 </body>
