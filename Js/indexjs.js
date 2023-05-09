@@ -1,5 +1,6 @@
-let arregloUsuario = [] 
+let arregloUsuario = []
 let salir = 0
+let salir1 = 0
 
 class Usuario{
     constructor(nombre, contraseña, tarjeta){
@@ -11,53 +12,37 @@ class Usuario{
     agregarTarjetas(tarjeta){
         this.tarjetas.push(tarjeta)
 
-        let condicionSalida = false;
-        while (!condicionSalida) {
-        let entradaUsuario = prompt("Escriba 'Si' para salir o cualquier otra tecla para continuar añadiendo las tarjetas.");
-          if (entradaUsuario.toLowerCase() === "si") {
-            condicionSalida = true;
-          }
-        }
     }
 
     mostrarTarjetas() {
-        let condicionSalida = false;
-        while (!condicionSalida) {
           let mensaje = "";
           let i = 1
           this.tarjetas.forEach((tarjeta) => {
             mensaje += "El numero de la tarjeta "+ i +" es: "+tarjeta.numTarjeta + 
             "\nEl propietario de la tarjeta "+ i +" es: " + tarjeta.propTarjeta + 
             "\nEl vencimiento de la tarjeta " + i + " es: " + tarjeta.vencimientoTarjeta + 
-            "\nEl codigo de seguridad de la tarjeta " + i + " es: " + tarjeta.codigoSeguridadTarjeta + "\n ";
+            "\nEl codigo de seguridad de la tarjeta " + i + " es: " + tarjeta.codigoSeguridadTarjeta + "\n";
             i = i + 1
           });
           alert(mensaje);
-          let entradaUsuario = prompt("Escriba 'Si' para salir o cualquier otra tecla para continuar viendo las tarjetas.");
-          if (entradaUsuario.toLowerCase() === "si") {
-            condicionSalida = true;
-          }
+      } 
+
+
+    quitarTarjeta(codigoSeguridad) {
+        const tarjetaEncontrada = this.tarjetas.find( (seguridad) => seguridad.codigoSeguridadTarjeta == codigoSeguridad)
+        let tamañoArregloTarjeta = this.tarjetas.length
+
+        if(tamañoArregloTarjeta > 1){
+            if (tarjetaEncontrada) {
+                const index = this.tarjetas.indexOf(tarjetaEncontrada);
+                this.tarjetas.splice(index, 1);
+              } else {
+                alert("No se encontró ninguna tarjeta con ese código de seguridad");
+              }
         }
-      }
-
-
-      quitarTarjeta(codigoSeguridad) {
-        let mensaje = "";
-        let tarjetaEliminada = this.tarjetas.find(tarjeta => tarjeta.codigoSeguridadTarjeta === codigoSeguridad);
-        tarjetaEliminada = this.tarjetas.find(tarjeta => tarjeta.codigoSeguridadTarjeta === codigoSeguridad);
-
-
-
-        console.log(tarjetaEliminada)
-        if (!tarjetaEliminada) {
-            mensaje = "No se encontró ninguna tarjeta con ese código de seguridad.";
-        } else {
-            // Eliminar la tarjeta del arreglo
-            this.tarjetas = this.tarjetas.filter(tarjeta => tarjeta !== tarjetaEliminada);
-            mensaje = "Se eliminó la tarjeta con número " + tarjetaEliminada.numTarjeta + ".";
+        else{
+            alert("No puede quedarse sin tarjetas")
         }
-      
-        alert(mensaje);
     }
 }
 
@@ -109,12 +94,11 @@ function crearTarjeta(){
 }
 
 function ingresar(usuarioA, contraseñaA){
-    let registrarse1 = null;
-    let j = 0;
+    let userFound = false;
+    let queHacer
     
     do{
-        let userFound = false;
-        arregloUsuario.forEach( (user, index) =>{
+        arregloUsuario.forEach( (user) =>{
             if(usuarioA === user.nombre && contraseñaA === user.contraseña){
                 userFound = true;
             }
@@ -124,78 +108,117 @@ function ingresar(usuarioA, contraseñaA){
             alert("El usuario o la contraseña son incorrectos.");
             usuarioA = prompt("Ingrese un nombre de usuario correcto");
             contraseñaA = prompt("Ingrese una contraseña correcta");
-        }else{
-            break;
+
+            arregloUsuario.forEach( (user) =>{
+                if(usuarioA === user.nombre && contraseñaA === user.contraseña){
+                    userFound = true;
+                }
+            })
         }
     
-        if( j >= arregloUsuario.length){
-            registrarse1 = prompt("¿Desea registrarse?");
 
-            registrarse1.toLocaleLowerCase()
-        
-            if (registrarse1 == "si"){
+        if(!userFound){
+
+            queHacer = prompt("Que desea hacer: " + "\n1. registarse" +"\n2. ver contraseña")
+
+            if(queHacer == 1){
                 crearUsuario();
                 break;
             }
-         }
-    
-        j++;
-    }while(registrarse1 !== 3 || !userFound);
+            if(queHacer == 2){
+                usuarioA = prompt("Ingrese su usuario");
+                const usuarioEncontrado = arregloUsuario.find((usuario) => usuario.nombre === usuarioA);
 
-    paginaAdentro(usuarioA)
+                
+                if (usuarioEncontrado) {
+                    const contraseñaEncontrada = usuarioEncontrado.contraseña;
+                    alert("El nombre de usuario es " + usuarioA + "y su contraseña es" + contraseñaEncontrada);
+                } 
+                else {
+                    alert("El usuario que ingreso no existe");
+                }
+            }
+        }
+
+    }while(queHacer != 1 && !userFound);
+
+
+    if(queHacer != 1){
+        paginaAdentro(usuarioA)
+    }
 }
 
 function ajusteDeCuenta(nombreDeUsuario){
-    let salir1
     let opciones = parseInt(prompt("Bienvenido " + nombreDeUsuario + "\nQue desa hacer" + "\n1. para Añadir tarjeta" + "\n2. para Quitar tarjeta" + "\n3. para mirar sus tarjetas" + "\n4. para salir"))
-    while (salir1 != 4){
+    const indice = arregloUsuario.findIndex(usuario => usuario.nombre == nombreDeUsuario);
+
+    while(salir1 != 4){
+
         switch (opciones){
             case 1 : 
                 let tarjeta1 = crearTarjeta()
-                arregloUsuario[0].agregarTarjetas(tarjeta1)
-                salir1 = 4
+                arregloUsuario[indice].agregarTarjetas(tarjeta1)
+                salir = opciones
                 break;
             case 2 : 
                 let codigoTarjetaSeguridad = prompt("Ingrese el codigo de seguridad de la tarjeta que desea rertirar")
-                arregloUsuario[0].quitarTarjeta(codigoTarjetaSeguridad)
-                salir1 = 4
+                arregloUsuario[indice].quitarTarjeta(codigoTarjetaSeguridad)
+                salir1 = opciones
+                break;
             case 3 :
-                arregloUsuario[0].mostrarTarjetas()
-                salir1 = 4
+                arregloUsuario[indice].mostrarTarjetas()
+                salir1 = opciones
                 break;
             case 4 :
-                salir1 = 4
+                salir1 = opciones
                 break;
-            default : alert("Usted ingreso un numero incorrecto")
-            salir1 = 4
-            break;  
+            default : 
+                alert("Usted ingreso un numero incorrecto")
+                salir1 = opciones
+                break;  
+        }
+
+        if(salir1 != 4){
+            opciones = parseInt(prompt("Bienvenido " + nombreDeUsuario + "\nQue desa hacer" + "\n1. para Añadir tarjeta" + "\n2. para Quitar tarjeta" + "\n3. para mirar sus tarjetas" + "\n4. para salir"))
         }
     }
+    salir1 = 0
 }
 
 
 function paginaAdentro(nombreUsuario){
-    while(salir != 4) {
         let genero = parseInt( prompt("Bienvenido " + nombreUsuario + "\nQue genero desea mirar" + "\n1. para Acción" + "\n2. para Comedia" + "\n3. para Drama" +"\n4. para ajuste de cuenta" +"\n5. para salir") ) 
-        switch (genero){
-            case 1 : pelisAcción()
-                break;
-    
-            case 2 : pelisComedia()
-                break;
-    
-            case 3 : pelisDrama()
-                break;
-            case 4 : ajusteDeCuenta(nombreUsuario)
-                break;
-            case 5 : alert("Cerrar sesión")
-                programaPrincipal()
-                break;
-            default : alert("Usted ingreso un numero incorrecto")
-                break;
+        while(salir != 5){
+            switch (genero){
+                case 1 : pelisAcción()
+                salir = genero
+                    break;
+        
+                case 2 : pelisComedia()
+                salir = genero
+                    break;
+        
+                case 3 : pelisDrama()
+                salir = genero
+                    break;
+                case 4 : ajusteDeCuenta(nombreUsuario)
+                salir = genero
+                    break;
+                case 5 : alert("Cerrar sesión")
+                   salir = genero
+                    break;
+                default : alert("Usted ingreso un numero incorrecto")
+                salir = genero
+                    break;
+            }
+
+            if(salir != 5){
+                genero = parseInt( prompt("Bienvenido " + nombreUsuario + "\nQue genero desea mirar" + "\n1. para Acción" + "\n2. para Comedia" + "\n3. para Drama" +"\n4. para ajuste de cuenta" +"\n5. para salir") )
+            }
         }
+        salir = 0
+        programaPrincipal()
     }
-}
 
 function programaPrincipal(){
     let cuenta= prompt("Bienvenido a StarWatch"+"\nPresione 1. para iniciar sesión" + "\nPresione 2. para registrarse" + "\nPresione 3. para salir de la pagina")
@@ -209,16 +232,13 @@ function programaPrincipal(){
             crearUsuario()
         }
 
-         if (cuenta == 1) {
+        if (cuenta == 1) {
             let usuario1 = prompt("Ingrese su nombre de usuario")
             let contraseña1 = prompt("Ingrese su contraseña de usuario")
 
             ingresar(usuario1,contraseña1)
         }
 
-        if (cuenta == 3){
-            salir = 4
-        }
     }while(cuenta !=1 && cuenta != 2 && cuenta != 3)
 }
 
