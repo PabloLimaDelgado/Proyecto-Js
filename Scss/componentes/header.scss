@@ -1,95 +1,97 @@
 header{
-    background-color: #4A4A4A;
     padding: 0%;
     margin: 0px;
-    .row{
-        margin-right: 0px;
-        .nav-bar-Sw{
-            margin: 0px;
-            div{
-                display: flex;
-                justify-content: space-evenly;
-                .a-logo{
-                    color: #e4ffc6;
-                    margin-left: 5%;
-                    font-family: 'Sigmar', cursive;
-                    font-size: 25px;
-                }
+    .header-principal{
+        background-color: #4A4A4A;
+        .row{
+            margin-right: 0px;
+            .nav-bar-Sw{
+                margin: 0px;
                 div{
-                    ul{
-                        .li-item-normal{
-                            padding:  10%;
-                            transition: all;
-
-
-                            a{
-                                text-decoration: none;
-                                margin: 5px;
-                                width: 100%;
-                                text-overflow: ellipsis;
-                                white-space: nowrap;
-                                overflow: hidden;
-                                color: #e4ffc6;
-                                font-family: 'Nunito', sans-serif;
-                                font-size: 15px;
-                            }
-                        }  
-                        
-                        .li-item-normal:hover{
-                            transform: scale(1.2);
-                        }
-
-                        .li-item-tabla{
-                            padding:  10%;
-                            transition: all;
-                            position: relative;
-
-                            a{
-                                text-decoration: none;
-                                color: #e4ffc6;
-                                margin: 5px;
+                    display: flex;
+                    justify-content: space-evenly;
+                    .a-logo{
+                        color: #e4ffc6;
+                        margin-left: 5%;
+                        font-family: 'Sigmar', cursive;
+                        font-size: 25px;
+                    }
+                    div{
+                        ul{
+                            .li-item-normal{
+                                padding:  10%;
                                 transition: all;
-                                font-family: 'Nunito', sans-serif;
-                                font-size: 15px;
+    
+    
+                                a{
+                                    text-decoration: none;
+                                    margin: 5px;
+                                    width: 100%;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    color: #e4ffc6;
+                                    font-family: 'Nunito', sans-serif;
+                                    font-size: 15px;
+                                }
+                            }  
+                            
+                            .li-item-normal:hover{
+                                transform: scale(1.2);
                             }
-
-                            .dropdown-menu.show {
-                                display: grid;
-                                grid-template-columns: 1fr 1fr;
-                                grid-template-rows: 1fr 1fr;
-                                background-color: #576c89;
-                                border-radius: 5px;
-
-                                li{
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-
-                                    a{
-                                        text-decoration: none;
-                                        color:  #e4ffc6;
-                                        margin: 5px;
-                                        padding: 5px;
-                                        text-overflow: ellipsis;
-                                        white-space: nowrap;
-                                        overflow: hidden;
-                                        width: 100%;
-                                        font-family: 'Nunito', sans-serif;
-                                        font-size: 15px;
+    
+                            .li-item-tabla{
+                                padding:  10%;
+                                transition: all;
+                                position: relative;
+    
+                                a{
+                                    text-decoration: none;
+                                    color: #e4ffc6;
+                                    margin: 5px;
+                                    transition: all;
+                                    font-family: 'Nunito', sans-serif;
+                                    font-size: 15px;
+                                }
+    
+                                .dropdown-menu.show {
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr;
+                                    grid-template-rows: 1fr 1fr;
+                                    background-color: #576c89;
+                                    border-radius: 5px;
+    
+                                    li{
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+    
+                                        a{
+                                            text-decoration: none;
+                                            color:  #e4ffc6;
+                                            margin: 5px;
+                                            padding: 5px;
+                                            text-overflow: ellipsis;
+                                            white-space: nowrap;
+                                            overflow: hidden;
+                                            width: 100%;
+                                            font-family: 'Nunito', sans-serif;
+                                            font-size: 15px;
+                                        }
                                     }
                                 }
-                            }
-                        }           
+                            }           
+                        }
                     }
                 }
             }
-        }
-
-        .div-buscador{
-            display: flex;
-            justify-content: end;
-            align-items: center;
-
-        }
-   }
+    
+            .div-buscador{
+                display: flex;
+                justify-content: end;
+                align-items: center;
+    
+            }
+       }
+    }
 }

@@ -1,4 +1,4 @@
-let arregloUsuario = []
+/* let arregloUsuario = []
 let salir = 0
 let salir1 = 0
 
@@ -246,33 +246,15 @@ function programaPrincipal(){
 
 programaPrincipal()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 /*------------ESTRENOS------------------------------------------------------------*/
-
 
 const filaEstrenos = document.querySelector('.contenedor-carrousel-estrenos')
 const estrenos =  document.querySelectorAll('.estrenos')
 
 const  flechaIzquierda1 = document.getElementById('flecha-izquierda1')
 const  flechaDerecha1 = document.getElementById('flecha-derecha1')
-
-
 
 flechaDerecha1.addEventListener('click', () => {
     filaEstrenos.scrollLeft += filaEstrenos.offsetWidth;
@@ -285,7 +267,6 @@ flechaDerecha1.addEventListener('click', () => {
     }
 });
 
-
 flechaIzquierda1.addEventListener('click', () => {
     filaEstrenos.scrollLeft -= filaEstrenos.offsetWidth;
 
@@ -296,8 +277,6 @@ flechaIzquierda1.addEventListener('click', () => {
         indicadorActivo.classList.remove('activo');
     }
 });
-
-
 
 const numeroPaginas = Math.ceil(estrenos.length / 5)
 
@@ -316,7 +295,6 @@ for(let i =0; i<numeroPaginas; i++){
     })
 }
 
-
 estrenos.forEach( (estrenos) => {
     estrenos.addEventListener('mouseenter', (e) => {
         const elemento = e.currentTarget;
@@ -331,19 +309,12 @@ filaEstrenos.addEventListener('mouseleave', () =>{
     estrenos.forEach(estrenos => estrenos.classList.remove('hover'))
 })
 
-
-
-
 /*------------COMEDIA------------------------------------------------------------*/
-
-
-
 
 const filaComedia = document.querySelector('.contenedor-carrousel-comedia')
 const comedia =  document.querySelectorAll('.comedia')
 const  flechaIzquierda2 = document.getElementById('flecha-izquierda2')
 const  flechaDerecha2 = document.getElementById('flecha-derecha2')
-
 
 flechaDerecha2.addEventListener('click', () => {
     filaComedia.scrollLeft += filaComedia.offsetWidth;
@@ -356,7 +327,6 @@ flechaDerecha2.addEventListener('click', () => {
     }
 });
 
-
 flechaIzquierda2.addEventListener('click', () => {
     filaComedia.scrollLeft -= filaComedia.offsetWidth;
 
@@ -368,9 +338,7 @@ flechaIzquierda2.addEventListener('click', () => {
     }
 });
 
-
-
- const numeroPaginas1 = Math.ceil(comedia.length / 5)
+const numeroPaginas1 = Math.ceil(comedia.length / 5)
 
 for(let i =0; i<numeroPaginas1; i++){
     const indicador = document.createElement('button');
@@ -387,16 +355,12 @@ for(let i =0; i<numeroPaginas1; i++){
     })
 } 
 
-
-
 /*------------ACCION------------------------------------------------------------*/
-
 
 const filaAccion = document.querySelector('.contenedor-carrousel-accion')
 const accion =  document.querySelectorAll('.accion')
 const  flechaIzquierda3 = document.getElementById('flecha-izquierda3')
 const  flechaDerecha3 = document.getElementById('flecha-derecha3')
-
 
 flechaDerecha3.addEventListener('click', () => {
     filaAccion.scrollLeft += filaAccion.offsetWidth;
@@ -409,7 +373,6 @@ flechaDerecha3.addEventListener('click', () => {
     }
 });
 
-
 flechaIzquierda3.addEventListener('click', () => {
     filaAccion.scrollLeft -= filaAccion.offsetWidth;
 
@@ -421,9 +384,7 @@ flechaIzquierda3.addEventListener('click', () => {
     }
 });
 
-
-
- const numeroPaginas2 = Math.ceil(accion.length / 5)
+const numeroPaginas2 = Math.ceil(accion.length / 5)
 
 for(let i =0; i<numeroPaginas2; i++){
     const indicador = document.createElement('button');
@@ -439,3 +400,57 @@ for(let i =0; i<numeroPaginas2; i++){
         e.target.classList.add('activo');
     })
 } 
+
+
+
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+const headerPrincipio = document.getElementById('header-principio')
+const mainPrincipio = document.getElementById('main-principio')
+const footerPrincipio = document.getElementById('footer-principio')
+
+const registrase = document.getElementById('btnRegistro')
+const entrar = document.getElementById('btnInicioSesion')
+const formularioInscripcion = document.querySelector('.inicio')
+const formularioRegistro = document.getElementById('form-registro')
+
+registrase.addEventListener('click', (event) => {
+    event.preventDefault();
+    formularioInscripcion.classList.add('inicio-disable')
+    formularioRegistro.classList.remove('inicio-disable')
+    formularioRegistro.classList.add('registro')
+    btnDos.classList.add('disable')
+});
+
+const usuarioRegistroNombre = document.getElementById('inputUsuarioR')
+const usuarioRegistroContraseña = document.getElementById('inputContraseñaR')
+const usuarioTarjetaNum = document.getElementById('numTarjetaR')
+const usuarioTarjetaNombre = document.getElementById('nombreTarjetaR')
+const usuarioTarjetaVencimiento = document.getElementById('vencimientoTarjetaR')
+const usuarioTrjetaCodigo = document.getElementById('codigoTarjetaR')
+
+const btnRegistro = document.getElementById('enviar-reg')
+const btnDos = document.querySelector('.botones');
+
+btnRegistro.addEventListener('click', programaPrincipal)
+
+function programaPrincipal(e){
+    e.preventDefault()
+    const user = usuarioRegistroNombre.value;
+    const password = usuarioRegistroContraseña.value;
+    const cardNum = usuarioTarjetaNum.value;
+    const cardName = usuarioTarjetaNombre.value;
+    const cardVencimiento = usuarioTarjetaVencimiento.value;
+    const cardCode = usuarioTrjetaCodigo.value;
+
+    const rellenarCampos = document.getElementById('texto-fallido')
+    if(usuarioRegistroNombre.value == "" || usuarioRegistroContraseña.value == "" || usuarioTarjetaNum.value == "" || usuarioTarjetaNombre.value == "" || usuarioTarjetaVencimiento.value == "" || usuarioTrjetaCodigo.value == ""){
+        rellenarCampos.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Complete todos los campos`
+    }
+    else{
+        let tarjeta = crearTarjeta(cardNum, cardName, cardVencimiento, cardCode);
+        let usuario = crearUsuario(user, password, tarjeta);
+        seccionInicioPag.classList.add('disable')
+    }
+}
