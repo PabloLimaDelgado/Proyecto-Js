@@ -406,18 +406,18 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
 .html-form {
   height: 100%;
 }
-.html-form body {
+.html-form .body-inicio {
   background: linear-gradient(0deg, rgba(74, 74, 74, 0.3) 100%, rgb(228, 255, 198) 100%), url("../Vinilo económicos para decoración, Decoravinilos_ Vinilos baratos Murcia.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
 }
-.html-form body header .header-inicio {
+.html-form .body-inicio header .header-inicio {
   background-color: rgba(74, 74, 74, 0.9);
   margin: 0px;
   height: 50px;
 }
-.html-form body header .header-inicio h1 {
+.html-form .body-inicio header .header-inicio h1 {
   color: #e4ffc6;
   margin-left: 5%;
   font-family: "Sigmar", cursive;
@@ -427,16 +427,19 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
   position: relative;
   left: 5%;
 }
-.html-form body .main-inicio {
+.html-form .body-inicio header .desaparecer {
+  display: none;
+}
+.html-form .body-inicio .main-inicio {
   height: 74.2%;
 }
-.html-form body .main-inicio .main-init section {
+.html-form .body-inicio .main-inicio .main-init section {
   display: flex;
   justify-content: center;
   padding: 2%;
   padding-top: 5%;
 }
-.html-form body .main-inicio .main-init section form {
+.html-form .body-inicio .main-inicio .main-init section form {
   border: transparent solid 1px;
   border-radius: 5%;
   display: flex;
@@ -447,25 +450,25 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
   width: 32%;
   background-color: rgba(74, 74, 74, 0.95);
 }
-.html-form body .main-inicio .main-init section form div {
+.html-form .body-inicio .main-inicio .main-init section form div {
   width: 100%;
   margin: 5px;
 }
-.html-form body .main-inicio .main-init section form div h1 {
+.html-form .body-inicio .main-inicio .main-init section form div h1 {
   color: #e4ffc6;
   margin-left: 5%;
   font-family: "Sigmar", cursive;
   font-size: 25px;
   margin-bottom: 0px;
 }
-.html-form body .main-inicio .main-init section form .inicio {
+.html-form .body-inicio .main-inicio .main-init section form .inicio {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 10px;
 }
-.html-form body .main-inicio .main-init section form .inicio input {
+.html-form .body-inicio .main-inicio .main-init section form .inicio input {
   outline: none;
   background-color: #576c89;
   border: #576c89 solid 1px;
@@ -476,15 +479,15 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
   font-family: "Nunito", sans-serif;
   font-size: 15px;
 }
-.html-form body .main-inicio .main-init section form .inicio input::placeholder {
+.html-form .body-inicio .main-inicio .main-init section form .inicio input::placeholder {
   border: 0px;
   color: white;
   font-family: "Nunito", sans-serif;
 }
-.html-form body .main-inicio .main-init section form .inicio input:focus {
+.html-form .body-inicio .main-inicio .main-init section form .inicio input:focus {
   outline: none;
 }
-.html-form body .main-inicio .main-init section form .inicio p {
+.html-form .body-inicio .main-inicio .main-init section form .inicio p {
   color: white;
   padding-left: 10%;
   padding-right: 10%;
@@ -492,18 +495,19 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
   background-color: red;
   font-size: 15px;
   font-weight: 600;
+  white-space: nowrap;
 }
-.html-form body .main-inicio .main-init section form .inicio-disable {
+.html-form .body-inicio .main-inicio .main-init section form .inicio-disable {
   display: none;
 }
-.html-form body .main-inicio .main-init section form .registro {
+.html-form .body-inicio .main-inicio .main-init section form .registro {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 10px;
 }
-.html-form body .main-inicio .main-init section form .registro input {
+.html-form .body-inicio .main-inicio .main-init section form .registro input {
   outline: none;
   background-color: #576c89;
   border: #576c89 solid 1px;
@@ -514,15 +518,15 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
   font-family: "Nunito", sans-serif;
   font-size: 15px;
 }
-.html-form body .main-inicio .main-init section form .registro input::placeholder {
+.html-form .body-inicio .main-inicio .main-init section form .registro input::placeholder {
   border: 0px;
   color: white;
   font-family: "Nunito", sans-serif;
 }
-.html-form body .main-inicio .main-init section form .registro input:focus {
+.html-form .body-inicio .main-inicio .main-init section form .registro input:focus {
   outline: none;
 }
-.html-form body .main-inicio .main-init section form .registro button {
+.html-form .body-inicio .main-inicio .main-init section form .registro button {
   background-color: #576c89;
   color: white;
   border: white inset 1px;
@@ -532,14 +536,19 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
   font-family: "Nunito", sans-serif;
   font-size: 15px;
 }
-.html-form body .main-inicio .main-init section form .registro p {
+.html-form .body-inicio .main-inicio .main-init section form .registro p {
   color: white;
   border-radius: 5%;
   background-color: red;
   font-size: 15px;
   font-weight: 600;
+  padding: 2%;
+  white-space: nowrap;
 }
-.html-form body .main-inicio .main-init section form .botones {
+.html-form .body-inicio .main-inicio .main-init section form .registro .disable-p {
+  display: none;
+}
+.html-form .body-inicio .main-inicio .main-init section form .botones {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -547,32 +556,32 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
   gap: 10px;
   padding-top: 0;
 }
-.html-form body .main-inicio .main-init section form .botones button {
+.html-form .body-inicio .main-inicio .main-init section form .botones button {
   color: #576c89;
   background-color: #e4ffc6;
   font-family: "Nunito", sans-serif;
   font-weight: 600;
   font-size: 20px;
 }
-.html-form body .main-inicio .main-init section form .botones .disable {
+.html-form .body-inicio .main-inicio .main-init section form .botones .disable {
   display: none;
 }
-.html-form body .main-inicio .main-init section form .disable {
+.html-form .body-inicio .main-inicio .main-init section form .disable {
   display: none;
 }
-.html-form body .main-inicio .main-init .disable {
+.html-form .body-inicio .main-inicio .main-init .disable {
   display: none;
 }
-.html-form body .disable {
+.html-form .body-inicio .disable {
   display: none;
 }
-.html-form body footer .footer-inicio {
+.html-form .body-inicio footer .footer-inicio {
   background-color: rgba(74, 74, 74, 0.9);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.html-form body footer .footer-inicio .div-logos {
+.html-form .body-inicio footer .footer-inicio .div-logos {
   display: flex;
   flex-direction: row;
   width: 50%;
@@ -584,7 +593,7 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
   font-size: 1.5em;
   font-weight: lighter;
 }
-.html-form body footer .footer-inicio .div-enlaces {
+.html-form .body-inicio footer .footer-inicio .div-enlaces {
   display: grid;
   width: 50%;
   grid-template-columns: 1fr 1fr 1fr;
@@ -593,13 +602,13 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
   align-items: center;
   margin: 1%;
 }
-.html-form body footer .footer-inicio .div-enlaces a {
+.html-form .body-inicio footer .footer-inicio .div-enlaces a {
   color: white;
   text-decoration: none;
   font-size: 1em;
   margin: 1%;
 }
-.html-form body footer .footer-inicio .div-enlaces a:hover {
+.html-form .body-inicio footer .footer-inicio .div-enlaces a:hover {
   text-decoration: underline;
 }
 

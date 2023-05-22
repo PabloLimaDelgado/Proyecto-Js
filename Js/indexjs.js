@@ -406,9 +406,46 @@ for(let i =0; i<numeroPaginas2; i++){
 
 /*-----------------------------------------------------------------------------------------------------*/
 
+let arregloUsuario = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+class Usuario{
+    constructor(nombre, contraseña, tarjeta){
+        this.nombre = nombre
+        this.contraseña = contraseña
+        this.tarjetas = [tarjeta]
+    }
+}
+
+class Tarjeta{
+    constructor(numTarjeta, propTarjeta, vencimientoTarjeta, codigoSeguridadTarjeta){
+        this.numTarjeta = numTarjeta
+        this.propTarjeta = propTarjeta
+        this.vencimientoTarjeta = vencimientoTarjeta
+        this.codigoSeguridadTarjeta = codigoSeguridadTarjeta
+    }
+}
+
+function crearTarjeta(cardNum, cardName, cardVencimiento, cardCode){
+    let tarjeta1 = new Tarjeta(cardNum, cardName, cardVencimiento, cardCode)
+    return tarjeta1
+}
+
+function crearUsuario(user, password, tarjeta) {
+    let usuario = new Usuario(user, password, tarjeta);
+    arregloUsuario.push(usuario); // Agregar usuario al array
+    localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
+    return usuario;
+}
+
 const headerPrincipio = document.getElementById('header-principio')
 const mainPrincipio = document.getElementById('main-principio')
 const footerPrincipio = document.getElementById('footer-principio')
+
+const headerInicio = document.getElementById('header-inicio')
+const mainInicio = document.getElementById('main-init')
+const footerInicio = document.getElementById('footer-inicio')
+
+const cuerpo = document.getElementById('cuerpo')
 
 const registrase = document.getElementById('btnRegistro')
 const entrar = document.getElementById('btnInicioSesion')
@@ -432,8 +469,11 @@ const usuarioTrjetaCodigo = document.getElementById('codigoTarjetaR')
 
 const btnRegistro = document.getElementById('enviar-reg')
 const btnDos = document.querySelector('.botones');
+const seccionInicioPag = document.getElementById('seccion-inicio-pagina')
 
 btnRegistro.addEventListener('click', programaPrincipal)
+
+const rellenarCampos = document.getElementById('texto-fallido')
 
 function programaPrincipal(e){
     e.preventDefault()
@@ -444,13 +484,67 @@ function programaPrincipal(e){
     const cardVencimiento = usuarioTarjetaVencimiento.value;
     const cardCode = usuarioTrjetaCodigo.value;
 
-    const rellenarCampos = document.getElementById('texto-fallido')
     if(usuarioRegistroNombre.value == "" || usuarioRegistroContraseña.value == "" || usuarioTarjetaNum.value == "" || usuarioTarjetaNombre.value == "" || usuarioTarjetaVencimiento.value == "" || usuarioTrjetaCodigo.value == ""){
+        rellenarCampos.classList.remove('disable-p')
         rellenarCampos.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Complete todos los campos`
     }
     else{
         let tarjeta = crearTarjeta(cardNum, cardName, cardVencimiento, cardCode);
         let usuario = crearUsuario(user, password, tarjeta);
         seccionInicioPag.classList.add('disable')
+
+        headerPrincipio.classList.remove('desaparecer')
+        mainPrincipio.classList.remove('desaparecer')
+        footerPrincipio.classList.remove('desaparecer')
+
+        headerPrincipio.classList.add('header-principal')
+        mainPrincipio.classList.add('main-principal')
+        footerPrincipio.classList.add('footer-principal')
+
+        headerInicio.classList.remove('header-inicio')
+        headerInicio.classList.add('desaparecer')
+        mainInicio.classList.remove('main-init')
+        mainInicio.classList.add('desaparecer')
+        footerInicio.classList.remove('footer-inicio')
+        footerInicio.classList.add('desaparecer')
+
+        cuerpo.classList.remove('body-inicio')
     }
 }
+
+entrar.addEventListener('click', (event) => {
+    event.preventDefault()
+    let userFound = false
+    const userA = document.getElementById('usuarioEntrada')
+    const passwordA = document.getElementById('contraseñaEntrada')
+    const rellenarCampos = document.getElementById('texto-fallido-ingreso')
+
+    arregloUsuario.forEach( (user) =>{
+        if(userA.value == user.nombre && passwordA.value == user.contraseña){
+            userFound = true
+        }
+    })
+
+    if(userFound == false){
+        rellenarCampos.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Usuario o contraseña incorrectos`
+    }
+    else{
+        seccionInicioPag.classList.add('disable')
+        headerPrincipio.classList.remove('desaparecer')
+        mainPrincipio.classList.remove('desaparecer')
+        footerPrincipio.classList.remove('desaparecer')
+
+        headerPrincipio.classList.add('header-principal')
+        mainPrincipio.classList.add('main-principal')
+        footerPrincipio.classList.add('footer-principal')
+
+        headerInicio.classList.remove('header-inicio')
+        headerInicio.classList.add('desaparecer')
+        mainInicio.classList.remove('main-init')
+        mainInicio.classList.add('desaparecer')
+        footerInicio.classList.remove('footer-inicio')
+        footerInicio.classList.add('desaparecer')
+
+        cuerpo.classList.remove('body-inicio')
+    }
+})
