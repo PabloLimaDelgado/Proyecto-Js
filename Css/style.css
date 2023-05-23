@@ -40,6 +40,20 @@ header .header-principal .row .nav-bar-Sw div div ul .li-item-normal a {
 header .header-principal .row .nav-bar-Sw div div ul .li-item-normal:hover {
   transform: scale(1.2);
 }
+header .header-principal .row .nav-bar-Sw div div ul .li-button {
+  padding: 10%;
+  transition: all;
+}
+header .header-principal .row .nav-bar-Sw div div ul .li-button button {
+  color: #e4ffc6;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  background-color: #4A4A4A;
+  border: 0px solid transparent;
+}
+header .header-principal .row .nav-bar-Sw div div ul .li-button:hover {
+  transform: scale(1.2);
+}
 header .header-principal .row .nav-bar-Sw div div ul .li-item-tabla {
   padding: 10%;
   transition: all;
@@ -526,7 +540,12 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
 .html-form .body-inicio .main-inicio .main-init section form .registro input:focus {
   outline: none;
 }
-.html-form .body-inicio .main-inicio .main-init section form .registro button {
+.html-form .body-inicio .main-inicio .main-init section form .registro div {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+}
+.html-form .body-inicio .main-inicio .main-init section form .registro div button {
   background-color: #576c89;
   color: white;
   border: white inset 1px;
@@ -614,6 +633,90 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
 
 html {
   overflow-x: hidden;
+}
+
+.html-form body main .main-config {
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+  align-items: start;
+}
+.html-form body main .main-config div h1 {
+  color: #e4ffc6;
+  margin-left: 5%;
+  font-family: "Sigmar", cursive;
+  font-size: 25px;
+  margin-bottom: 0px;
+}
+.html-form body main .main-config .volver-button {
+  display: flex;
+  justify-content: end;
+  padding: 2%;
+  align-items: center;
+}
+.html-form body main .main-config .volver-button button {
+  color: #e4ffc6;
+  border-radius: 5%;
+  padding: 4px;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  border: 0px solid transparent;
+  background: none;
+}
+.html-form body main .main-config .medioPago-cerrarSesion {
+  display: flex;
+  flex-direction: column;
+  border: transparent solid 1px;
+  border-radius: 5%;
+  gap: 15px;
+  background-color: rgba(74, 74, 74, 0.95);
+  padding: 1%;
+  width: 32%;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  white-space: nowrap;
+  padding: 2%;
+  width: 50%;
+  left: 17%;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #576c89;
+  border-radius: 5%;
+  padding: 10px;
+  margin: 15px;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario div h3 {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  color: #e4ffc6;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario div button {
+  background-color: rgb(74, 74, 74);
+  border: #576c89 solid 1px;
+  border-radius: 12%;
+  color: #e4ffc6;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario div:hover {
+  background-color: #e4ffc6;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario div:hover h3 {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  color: #576c89;
+  font-weight: 600;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario div:hover button {
+  background-color: rgb(74, 74, 74);
+  border: #576c89 solid 1px;
+  border-radius: 12%;
+  color: #e4ffc6;
 }
 
 

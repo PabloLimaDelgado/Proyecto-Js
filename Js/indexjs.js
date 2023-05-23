@@ -451,6 +451,7 @@ const registrase = document.getElementById('btnRegistro')
 const entrar = document.getElementById('btnInicioSesion')
 const formularioInscripcion = document.querySelector('.inicio')
 const formularioRegistro = document.getElementById('form-registro')
+const btnVolverInicioSesion = document.getElementById('btnVolverInicioSesion')
 
 registrase.addEventListener('click', (event) => {
     event.preventDefault();
@@ -459,6 +460,16 @@ registrase.addEventListener('click', (event) => {
     formularioRegistro.classList.add('registro')
     btnDos.classList.add('disable')
 });
+
+btnVolverInicioSesion.addEventListener('click', (event) => {
+    event.preventDefault();
+    formularioInscripcion.classList.remove('inicio-disable')
+    formularioRegistro.classList.remove('registro')
+    formularioRegistro.classList.add('inicio-disable')
+
+    btnDos.classList.remove('disable')
+
+})
 
 const usuarioRegistroNombre = document.getElementById('inputUsuarioR')
 const usuarioRegistroContraseña = document.getElementById('inputContraseñaR')
@@ -547,4 +558,57 @@ entrar.addEventListener('click', (event) => {
 
         cuerpo.classList.remove('body-inicio')
     }
+})
+
+
+
+
+
+
+
+
+
+
+
+const btnAjuste = document.getElementById('btnAjuste')
+const mainConfig = document.getElementById('main-config')
+
+btnAjuste.addEventListener('click', () => {
+
+    headerPrincipio.classList.remove('header-principal')
+    headerPrincipio.classList.add('desaparecer')
+    headerInicio.classList.remove('desaparecer')
+    headerInicio.classList.add('header-inicio')
+
+    mainPrincipio.classList.remove('main-principal')
+    mainPrincipio.classList.add('desaparecer')
+    mainConfig.classList.remove('desaparecer')
+    mainConfig.classList.add('main-config')
+
+    footerPrincipio.classList.remove('footer-principal')
+    footerPrincipio.classList.add('desaparecer')
+    footerInicio.classList.remove('desaparecer')
+    footerInicio.classList.add('footer-inicio')
+    cuerpo.classList.add('body-inicio')
+})
+
+const btnVolverCongif = document.getElementById('btnVolverConfig')
+
+btnVolverCongif.addEventListener('click', () => {
+    headerInicio.classList.remove('header-inicio')
+    headerInicio.classList.add('desaparecer')
+    headerPrincipio.classList.remove('desaparecer')
+    headerPrincipio.classList.add('header-principal')
+
+    mainConfig.classList.remove('main-config')
+    mainConfig.classList.add('desaparecer')
+    mainPrincipio.classList.remove('desaparecer')
+    mainPrincipio.classList.add('main-principal')
+
+    footerInicio.classList.remove('footer-inicio')
+    footerInicio.classList.add('desaparecer')
+    footerPrincipio.classList.remove('desaparecer')
+    footerPrincipio.classList.add('footer-principal')
+
+    cuerpo.classList.remove('body-inicio')
 })

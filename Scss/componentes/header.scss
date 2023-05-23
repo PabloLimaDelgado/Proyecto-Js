@@ -39,7 +39,22 @@ header{
                             .li-item-normal:hover{
                                 transform: scale(1.2);
                             }
-    
+
+                            .li-button{
+                                padding:  10%;
+                                transition: all;
+                                button{
+                                    color: #e4ffc6;
+                                    font-family: 'Nunito', sans-serif;
+                                    font-size: 15px;
+                                    background-color: #4A4A4A;
+                                    border: 0px solid transparent;
+                                }
+                            }
+                            .li-button:hover{
+                                transform: scale(1.2);
+                            }
+
                             .li-item-tabla{
                                 padding:  10%;
                                 transition: all;

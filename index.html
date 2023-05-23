@@ -33,9 +33,6 @@
                     <li class="nav-item li-item-normal">
                       <a class="" href="index.html#Estrenos">Estrenos</a>
                     </li>
-                    <li class="nav-item li-item-normal">
-                      <a class="" href="#">Mi lista</a>
-                    </li>
                     <li class="nav-item dropdown li-dropdown li-item-tabla">
                       <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Generos
@@ -57,6 +54,9 @@
                             <a href="">Ciencia Ficción</a>
                           </li>
                       </ul>
+                    </li>
+                    <li class="nav-item li-button">
+                      <button id="btnAjuste">Ajustes</button>
                     </li>
                   </ul>
                 </div>
@@ -289,7 +289,11 @@
               <input type="text" placeholder="Vencimiento tarjeta" id="vencimientoTarjetaR">
               <input type="text" placeholder="Codigo de seguridad" id="codigoTarjetaR">
               <p id="texto-fallido" class="disable-p"></p>
-              <button id="enviar-reg">Enviar</button>
+
+              <div>
+                <button id="enviar-reg">Enviar</button>
+                <button id="btnVolverInicioSesion">Volver</button>
+              </div>
             </section>
   
             <section class="botones">
@@ -299,6 +303,42 @@
   
           </form>
         </section>
+      </section>
+
+      <section class="desaparecer" id="main-config">
+
+        <div class="medioPago-cerrarSesion">
+          <div>
+            <h1>Ajuste Usuario</h1>
+          </div>
+  
+          <section class="primer-ajuste-usuario">
+              <div>
+                <h3>Añadir tarjeta</h3>
+                <button>click aqui</button>
+              </div>
+    
+              <div>
+                <h3>Cerrar Sesión</h3>
+                <button>click aqui</button>
+              </div>
+
+              <div>
+                <h3>Mirar tarjetas</h3>
+                <button>click aqui</button>
+              </div>
+
+              <div>
+                <h3>Quitar tarjeta</h3>
+                <button>click aqui</button>
+              </div>
+
+            </section>
+        
+            <div class="volver-button">
+              <button id="btnVolverConfig">Volver</button>
+            </div>
+        </div>
       </section>
     </main>
 

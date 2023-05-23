@@ -135,17 +135,21 @@
                                     outline: none;
                                 }
     
-                                button{
-                                    background-color: #576c89;
-                                    color: white;
-                                    border: white inset 1px;
-                                    border-radius: 5%;
-                                    padding: 4px;
-                                    padding-right: 15%;
-                                    font-family: "Nunito", sans-serif;
-                                    font-size: 15px;
+                                div{
+                                    display: flex;
+                                    flex-direction: row;
+                                    gap: 5%;
+                                    button{
+                                        background-color: #576c89;
+                                        color: white;
+                                        border: white inset 1px;
+                                        border-radius: 5%;
+                                        padding: 4px;
+                                        padding-right: 15%;
+                                        font-family: "Nunito", sans-serif;
+                                        font-size: 15px;
+                                    }
                                 }
-    
                                 p{
                                     color: white;
                                     border-radius: 5%;
