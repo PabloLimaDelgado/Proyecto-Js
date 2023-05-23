@@ -560,16 +560,6 @@ entrar.addEventListener('click', (event) => {
     }
 })
 
-
-
-
-
-
-
-
-
-
-
 const btnAjuste = document.getElementById('btnAjuste')
 const mainConfig = document.getElementById('main-config')
 
@@ -611,4 +601,23 @@ btnVolverCongif.addEventListener('click', () => {
     footerPrincipio.classList.add('footer-principal')
 
     cuerpo.classList.remove('body-inicio')
+})
+
+
+const btnCerrarSesion = document.getElementById('btnCerrarSesion')
+
+btnCerrarSesion.addEventListener('click', () => {
+    const rellenarCampos1 = document.getElementById('texto-fallido-ingreso')
+
+    mainConfig.classList.remove('main-config')
+    mainConfig.classList.add('desaparecer')
+
+    mainInicio.classList.remove('desaparecer')
+    mainInicio.classList.add('main-init')
+
+    seccionInicioPag.classList.remove('disable')
+    rellenarCampos1.outerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Usuario o contraseña incorrectos`
+
+
+    rellenarCampos.classList.add('disable-p')
 })
