@@ -45,54 +45,144 @@
                     width: 32%;
 
                     .primer-ajuste-usuario{
-                        display: grid;
-                        position: relative;
-                        grid-template-columns: 1fr 1fr;
-                        grid-template-rows: 1fr 1fr;
+                        display: flex;
                         white-space: nowrap;
                         padding: 2%;
-                        width: 50%;
-                        left: 17%;
+                        justify-content: center;
 
-
-                        div{
+                        .primeros2{
                             display: flex;
+                            justify-content: center;
                             align-items: center;
                             flex-direction: column;
-                            background-color: #576c89;
-                            border-radius: 5%;
-                            padding: 10px;
-                            margin: 15px;
-
-                            h3{
-                                font-family: "Nunito", sans-serif;
-                                font-size: 20px;
-                                color: #e4ffc6;
+                            div{
+                                display: flex;
+                                align-items: center;
+                                flex-direction: column;
+                                background-color: #576c89;
+                                border-radius: 5%;
+                                padding: 10px;
+                                margin: 15px;
+                                justify-content: center;
+    
+                                h3{
+                                    font-family: "Nunito", sans-serif;
+                                    font-size: 20px;
+                                    color: #e4ffc6;
+                                }
+    
+                                button{
+                                    background-color: rgb(74, 74, 74);;
+                                    border: #576c89 solid 1px;
+                                    border-radius: 12%;
+                                    color: #e4ffc6;
+                                }
                             }
-
-                            button{
-                                background-color: rgb(74, 74, 74);;
-                                border: #576c89 solid 1px;
-                                border-radius: 12%;
-                                color: #e4ffc6;
+    
+                            div:hover{
+                                background-color: #e4ffc6;
+    
+                                h3{
+                                    font-family: "Nunito", sans-serif;
+                                    font-size: 20px;
+                                    color: #576c89;
+                                    font-weight: 600;
+                                }
+    
+                                button{
+                                    background-color: rgb(74, 74, 74);;
+                                    border: #576c89 solid 1px;
+                                    border-radius: 12%;
+                                    color: #e4ffc6;
+                                }
                             }
                         }
 
-                        div:hover{
-                            background-color: #e4ffc6;
-
-                            h3{
-                                font-family: "Nunito", sans-serif;
-                                font-size: 20px;
-                                color: #576c89;
-                                font-weight: 600;
+                        .segundos2{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-direction: column;
+                            div{
+                                display: flex;
+                                align-items: center;
+                                flex-direction: column;
+                                background-color: #576c89;
+                                border-radius: 5%;
+                                padding: 10px;
+                                margin: 15px;
+                                justify-content: center;
+    
+                                h3{
+                                    font-family: "Nunito", sans-serif;
+                                    font-size: 20px;
+                                    color: #e4ffc6;
+                                }
+    
+                                button{
+                                    background-color: rgb(74, 74, 74);;
+                                    border: #576c89 solid 1px;
+                                    border-radius: 12%;
+                                    color: #e4ffc6;
+                                }
                             }
+    
+                            div:hover{
+                                background-color: #e4ffc6;
+    
+                                h3{
+                                    font-family: "Nunito", sans-serif;
+                                    font-size: 20px;
+                                    color: #576c89;
+                                    font-weight: 600;
+                                }
+    
+                                button{
+                                    background-color: rgb(74, 74, 74);;
+                                    border: #576c89 solid 1px;
+                                    border-radius: 12%;
+                                    color: #e4ffc6;
+                                }
+                            }
+                        }
+                    }
 
-                            button{
-                                background-color: rgb(74, 74, 74);;
-                                border: #576c89 solid 1px;
-                                border-radius: 12%;
-                                color: #e4ffc6;
+                    .desaparecer-primer-ajuste-usuario{
+                        display: none;
+                    }
+
+                    .datosTarjeta{
+                        display: flex;
+                        flex-direction: column;
+                        overflow-y: scroll;
+                        height: 300px;
+
+                        &::-webkit-scrollbar-thumb {
+                            background-color: #e4ffc6; /* Cambiar el color de fondo a rojo */
+                            color: red;
+                        }
+
+                        &::-webkit-scrollbar {
+                            color: red;
+                            background-color: white;
+                        }
+                        div{
+                            display: flex;
+                            flex-direction: column;
+                            margin-right: 18px;
+                            h3{
+                                display: flex;
+                                white-space:nowrap;
+                                justify-content: start;
+                                color: white;
+                                font-size: 20px;
+                                font-weight: 300;
+                            }
+                            p{
+                                display: flex;
+                                justify-content: end;
+                                overflow-x:hidden;
+                                color: white;
                             }
                         }
                     }

@@ -278,7 +278,7 @@
             <section class="inicio">
               <input type="text" placeholder="Usuario" id="usuarioEntrada">
               <input type="text" placeholder="Contraseña" id="contraseñaEntrada">
-              <p id="texto-fallido-ingreso"></p>
+              <p id="texto-fallido-ingreso" class="desaparecer-p"><i class="fa-solid fa-triangle-exclamation"></i> Usuario o contraseña incorrectos</p>
             </section>
     
             <section class="inicio-disable" id="form-registro">
@@ -288,7 +288,7 @@
               <input type="text" placeholder="Nombre tarjeta" id="nombreTarjetaR">
               <input type="text" placeholder="Vencimiento tarjeta" id="vencimientoTarjetaR">
               <input type="text" placeholder="Codigo de seguridad" id="codigoTarjetaR">
-              <p id="texto-fallido" class="disable-p"></p>
+              <p id="texto-fallido" class="disable-p"><i class="fa-solid fa-triangle-exclamation"></i> Complete todos los campos</p>
 
               <div>
                 <button id="enviar-reg">Enviar</button>
@@ -313,6 +313,7 @@
           </div>
   
           <section class="primer-ajuste-usuario">
+            <div class="primeros2">
               <div>
                 <h3>Añadir tarjeta</h3>
                 <button>click aqui</button>
@@ -322,19 +323,53 @@
                 <h3>Quitar tarjeta</h3>
                 <button>click aqui</button>
               </div>
+            </div>
 
+            <div class="segundos2">
               <div>
                 <h3>Mirar tarjetas</h3>
-                <button>click aqui</button>
+                <button id="btnMirarTarjetas">click aqui</button>
               </div>
 
               <div>
                 <h3>Cerrar Sesión</h3>
                 <button id="btnCerrarSesion">click aqui</button>
               </div>
-
+            </div>
             </section>
         
+            <section class="datosTarjeta">
+              <div>
+                <h3>Nombre tarjeta: </h3>
+                <p>Gonzalo Martinez</p>
+              </div>
+
+              <div>
+                <h3>Nombre tarjeta: </h3>
+                <p>Gonzalo Martinezasdasdsadsadas</p>
+              </div>
+
+              <div>
+                <h3>Nombre tarjeta: </h3>
+                <p>Gonzalo Martinezasdasdsadsadas</p>
+              </div>
+
+              <div>
+                <h3>Nombre tarjeta: </h3>
+                <p>Gonzalo Martinezasdasdsadsadas</p>
+              </div>
+
+              <div>
+                <h3>Nombre tarjeta: </h3>
+                <p>Gonzalo Martinezasdasdsadsadas</p>
+              </div>
+
+              <div>
+                <h3>Nombre tarjeta: </h3>
+                <p>Gonzalo Martinezasdasdsadsadas</p>
+              </div>
+            </section>
+
             <div class="volver-button">
               <button id="btnVolverConfig">Volver</button>
             </div>

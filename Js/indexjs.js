@@ -497,7 +497,6 @@ function programaPrincipal(e){
 
     if(usuarioRegistroNombre.value == "" || usuarioRegistroContraseña.value == "" || usuarioTarjetaNum.value == "" || usuarioTarjetaNombre.value == "" || usuarioTarjetaVencimiento.value == "" || usuarioTrjetaCodigo.value == ""){
         rellenarCampos.classList.remove('disable-p')
-        rellenarCampos.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Complete todos los campos`
     }
     else{
         let tarjeta = crearTarjeta(cardNum, cardName, cardVencimiento, cardCode);
@@ -537,7 +536,7 @@ entrar.addEventListener('click', (event) => {
     })
 
     if(userFound == false){
-        rellenarCampos.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Usuario o contraseña incorrectos`
+        rellenarCampos.classList.remove('desaparecer-p')
     }
     else{
         seccionInicioPag.classList.add('disable')
@@ -580,6 +579,9 @@ btnAjuste.addEventListener('click', () => {
     footerInicio.classList.remove('desaparecer')
     footerInicio.classList.add('footer-inicio')
     cuerpo.classList.add('body-inicio')
+
+    seccionAjusteUsuario.classList.add('primer-ajuste-usuario')
+    seccionAjusteUsuario.classList.remove('desaparecer-primer-ajuste-usuario')
 })
 
 const btnVolverCongif = document.getElementById('btnVolverConfig')
@@ -616,8 +618,24 @@ btnCerrarSesion.addEventListener('click', () => {
     mainInicio.classList.add('main-init')
 
     seccionInicioPag.classList.remove('disable')
-    rellenarCampos1.outerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Usuario o contraseña incorrectos`
 
-
+    rellenarCampos1.classList.add('desaparecer-p')
     rellenarCampos.classList.add('disable-p')
+
+    formularioInscripcion.classList.remove('inicio-disable')
+    formularioInscripcion.classList.add('inicio')
+
+    formularioRegistro.classList.remove('registro')
+    formularioRegistro.classList.add('inicio-disable')
+
+    btnDos.classList.add('botones')
+    btnDos.classList.remove('disable')
+})
+
+const btnMirarTarjetas = document.getElementById('btnMirarTarjetas')
+const seccionAjusteUsuario = document.querySelector('.primer-ajuste-usuario')
+
+btnMirarTarjetas.addEventListener('click', () => {
+    seccionAjusteUsuario.classList.remove('primer-ajuste-usuario')
+    seccionAjusteUsuario.classList.add('desaparecer-primer-ajuste-usuario')
 })

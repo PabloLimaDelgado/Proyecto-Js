@@ -510,6 +510,9 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
   font-weight: 600;
   white-space: nowrap;
 }
+.html-form .body-inicio .main-inicio .main-init section form .inicio .desaparecer-p {
+  display: none;
+}
 .html-form .body-inicio .main-inicio .main-init section form .inicio-disable {
   display: none;
 }
@@ -673,16 +676,18 @@ html {
   width: 32%;
 }
 .html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario {
-  display: grid;
-  position: relative;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  display: flex;
   white-space: nowrap;
   padding: 2%;
-  width: 50%;
-  left: 17%;
+  justify-content: center;
 }
-.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario div {
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .primeros2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .primeros2 div {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -690,32 +695,111 @@ html {
   border-radius: 5%;
   padding: 10px;
   margin: 15px;
+  justify-content: center;
 }
-.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario div h3 {
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .primeros2 div h3 {
   font-family: "Nunito", sans-serif;
   font-size: 20px;
   color: #e4ffc6;
 }
-.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario div button {
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .primeros2 div button {
   background-color: rgb(74, 74, 74);
   border: #576c89 solid 1px;
   border-radius: 12%;
   color: #e4ffc6;
 }
-.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario div:hover {
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .primeros2 div:hover {
   background-color: #e4ffc6;
 }
-.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario div:hover h3 {
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .primeros2 div:hover h3 {
   font-family: "Nunito", sans-serif;
   font-size: 20px;
   color: #576c89;
   font-weight: 600;
 }
-.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario div:hover button {
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .primeros2 div:hover button {
   background-color: rgb(74, 74, 74);
   border: #576c89 solid 1px;
   border-radius: 12%;
   color: #e4ffc6;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .segundos2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .segundos2 div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #576c89;
+  border-radius: 5%;
+  padding: 10px;
+  margin: 15px;
+  justify-content: center;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .segundos2 div h3 {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  color: #e4ffc6;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .segundos2 div button {
+  background-color: rgb(74, 74, 74);
+  border: #576c89 solid 1px;
+  border-radius: 12%;
+  color: #e4ffc6;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .segundos2 div:hover {
+  background-color: #e4ffc6;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .segundos2 div:hover h3 {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  color: #576c89;
+  font-weight: 600;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .primer-ajuste-usuario .segundos2 div:hover button {
+  background-color: rgb(74, 74, 74);
+  border: #576c89 solid 1px;
+  border-radius: 12%;
+  color: #e4ffc6;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .desaparecer-primer-ajuste-usuario {
+  display: none;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .datosTarjeta {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 300px;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .datosTarjeta::-webkit-scrollbar-thumb {
+  background-color: #e4ffc6; /* Cambiar el color de fondo a rojo */
+  color: red;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .datosTarjeta::-webkit-scrollbar {
+  color: red;
+  background-color: white;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .datosTarjeta div {
+  display: flex;
+  flex-direction: column;
+  margin-right: 18px;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .datosTarjeta div h3 {
+  display: flex;
+  white-space: nowrap;
+  justify-content: start;
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .datosTarjeta div p {
+  display: flex;
+  justify-content: end;
+  overflow-x: hidden;
+  color: white;
 }
 
 
