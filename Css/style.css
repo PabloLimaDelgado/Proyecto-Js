@@ -775,12 +775,11 @@ html {
   height: 300px;
 }
 .html-form body main .main-config .medioPago-cerrarSesion .datosTarjeta::-webkit-scrollbar-thumb {
-  background-color: #e4ffc6; /* Cambiar el color de fondo a rojo */
-  color: red;
+  background-color: rgba(228, 255, 198, 0.9); /* Cambiar el color de fondo a rojo */
+  border: #e4ffc6 solid 1px;
 }
 .html-form body main .main-config .medioPago-cerrarSesion .datosTarjeta::-webkit-scrollbar {
-  color: red;
-  background-color: white;
+  background-color: #576c89;
 }
 .html-form body main .main-config .medioPago-cerrarSesion .datosTarjeta div {
   display: flex;
@@ -800,6 +799,9 @@ html {
   justify-content: end;
   overflow-x: hidden;
   color: white;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .desaparecerTarjeta {
+  display: none;
 }
 
 

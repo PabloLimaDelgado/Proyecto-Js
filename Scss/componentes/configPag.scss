@@ -158,14 +158,14 @@
                         height: 300px;
 
                         &::-webkit-scrollbar-thumb {
-                            background-color: #e4ffc6; /* Cambiar el color de fondo a rojo */
-                            color: red;
+                            background-color: rgba(228, 255, 198, 0.9); /* Cambiar el color de fondo a rojo */
+                            border: #e4ffc6 solid 1px;
                         }
 
                         &::-webkit-scrollbar {
-                            color: red;
-                            background-color: white;
+                            background-color: #576c89;
                         }
+
                         div{
                             display: flex;
                             flex-direction: column;
@@ -185,6 +185,10 @@
                                 color: white;
                             }
                         }
+                    }
+
+                    .desaparecerTarjeta{
+                        display: none;
                     }
                 }
             }

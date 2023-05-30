@@ -414,6 +414,19 @@ class Usuario{
         this.contraseña = contraseña
         this.tarjetas = [tarjeta]
     }
+
+    mostrarTarjetas() {
+        let mensaje = "";
+        let i = 1
+        this.tarjetas.forEach((tarjeta) => {
+          mensaje += "El numero de la tarjeta "+ i +" es: "+tarjeta.numTarjeta + 
+          "\nEl propietario de la tarjeta "+ i +" es: " + tarjeta.propTarjeta + 
+          "\nEl vencimiento de la tarjeta " + i + " es: " + tarjeta.vencimientoTarjeta + 
+          "\nEl codigo de seguridad de la tarjeta " + i + " es: " + tarjeta.codigoSeguridadTarjeta + "\n";
+          i = i + 1
+        });
+        alert(mensaje);
+    }
 }
 
 class Tarjeta{
@@ -634,8 +647,19 @@ btnCerrarSesion.addEventListener('click', () => {
 
 const btnMirarTarjetas = document.getElementById('btnMirarTarjetas')
 const seccionAjusteUsuario = document.querySelector('.primer-ajuste-usuario')
+const seccionMirarTarjetas = document.getElementById('seccionMirarTarjetas')
 
 btnMirarTarjetas.addEventListener('click', () => {
     seccionAjusteUsuario.classList.remove('primer-ajuste-usuario')
     seccionAjusteUsuario.classList.add('desaparecer-primer-ajuste-usuario')
+    seccionMirarTarjetas.classList.remove('desaparecerTarjeta')
+    seccionMirarTarjetas.classList.add('datosTarjeta')
+
+    const usuarioEntradaNombre = document.getElementById('usuarioEntrada')
+    const indice = arregloUsuario.findIndex(usuario => usuario.nombre == usuarioRegistroNombre.value || usuario.nombre == usuarioEntradaNombre.value)
+
+    arregloUsuario[indice].mostrarTarjetas()
+
+
 })
+
