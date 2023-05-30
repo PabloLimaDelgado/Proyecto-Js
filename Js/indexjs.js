@@ -295,11 +295,11 @@ for(let i =0; i<numeroPaginas; i++){
     })
 }
 
-estrenos.forEach( (estrenos) => {
-    estrenos.addEventListener('mouseenter', (e) => {
+estrenos.forEach( (estreno) => {
+    estreno.addEventListener('mouseenter', (e) => {
         const elemento = e.currentTarget;
         setTimeout(() => {
-            estrenos.forEach(estrenos => estrenos.classList.remove('.hover'));
+            estrenos.forEach(estreno => estreno.classList.remove('.hover'));
             elemento.classList.add('hover');
         }, 300);
     })
@@ -415,17 +415,9 @@ class Usuario{
         this.tarjetas = [tarjeta]
     }
 
-    mostrarTarjetas() {
-        let mensaje = "";
-        let i = 1
-        this.tarjetas.forEach((tarjeta) => {
-          mensaje += "El numero de la tarjeta "+ i +" es: "+tarjeta.numTarjeta + 
-          "\nEl propietario de la tarjeta "+ i +" es: " + tarjeta.propTarjeta + 
-          "\nEl vencimiento de la tarjeta " + i + " es: " + tarjeta.vencimientoTarjeta + 
-          "\nEl codigo de seguridad de la tarjeta " + i + " es: " + tarjeta.codigoSeguridadTarjeta + "\n";
-          i = i + 1
-        });
-        alert(mensaje);
+    agregarTarjetas(tarjeta){
+        this.tarjetas.push(tarjeta)
+
     }
 }
 
@@ -616,6 +608,19 @@ btnVolverCongif.addEventListener('click', () => {
     footerPrincipio.classList.add('footer-principal')
 
     cuerpo.classList.remove('body-inicio')
+
+    seccionMirarTarjetas.classList.add('desaparecerTarjeta')
+    seccionMirarTarjetas.classList.remove('datosTarjeta')
+
+
+    while (seccionMirarTarjetas.firstChild) {
+        seccionMirarTarjetas.removeChild(seccionMirarTarjetas.firstChild);
+    }
+
+    seccionAgregarTarjetas.classList.add('desaparecerTarjeta')
+    seccionAgregarTarjetas.classList.remove('formTarjetaNueva')
+    
+    textoFallidoNuevo.classList.add('disable-p')
 })
 
 
@@ -658,8 +663,69 @@ btnMirarTarjetas.addEventListener('click', () => {
     const usuarioEntradaNombre = document.getElementById('usuarioEntrada')
     const indice = arregloUsuario.findIndex(usuario => usuario.nombre == usuarioRegistroNombre.value || usuario.nombre == usuarioEntradaNombre.value)
 
-    arregloUsuario[indice].mostrarTarjetas()
+    arregloUsuario[indice].tarjetas.forEach((tarjeta) => {
+        seccionMirarTarjetas.innerHTML += `
+        <div class="tarjetaDiv">
+            <h3>Número tarjeta: </h3>
+            <p>${tarjeta.numTarjeta}</p>
+        </div>
 
+        <div class="tarjetaDiv">
+            <h3>Nombre tarjeta: </h3>
+            <p>${tarjeta.propTarjeta}</p>
+        </div>
+
+        <div class="tarjetaDiv">
+            <h3>Vencimiento tarjeta: </h3>
+            <p>${tarjeta.vencimientoTarjeta}</p>
+        </div>
+
+        <div class="tarjetaDiv">
+            <h3>Codigo de seguridad tarjeta: </h3>
+            <p>${tarjeta.codigoSeguridadTarjeta}</p>
+        </div>
+        `
+      });
 
 })
 
+const btnAgrgarTarjetas = document.getElementById('btnAgregarTarjetas')
+const seccionAgregarTarjetas = document.getElementById('seccionAgregarTarjetas')
+
+btnAgrgarTarjetas.addEventListener('click', () =>{
+    seccionAjusteUsuario.classList.remove('primer-ajuste-usuario')
+    seccionAjusteUsuario.classList.add('desaparecer-primer-ajuste-usuario')
+    seccionAgregarTarjetas.classList.remove('desaparecerTarjeta')
+    seccionAgregarTarjetas.classList.add('formTarjetaNueva')
+})
+
+
+const formCardNueva = document.getElementById('formCardNueva')
+const textoFallidoNuevo = document.getElementById('texto-fallido-nuevo')
+formCardNueva.addEventListener("submit", validarForm)
+
+function validarForm(event){
+    event.preventDefault()
+
+    const numTarjetaNueva = document.getElementById('numTarjetaNueva')
+    const nombreTarjetaNueva = document.getElementById('nombreTarjetaNueva')
+    const vencimientoTarjetaNueva = document.getElementById('vencimientoTarjetaNueva')
+    const codigoTarjetaNueva = document.getElementById('codigoTarjetaNueva')
+
+    if(numTarjetaNueva.value == "" || nombreTarjetaNueva.value == "" || vencimientoTarjetaNueva.value == "" || codigoTarjetaNueva.value == ""){
+        textoFallidoNuevo.classList.remove('disable-p')
+    }
+    else{
+        const usuarioEntradaNombre = document.getElementById('usuarioEntrada')
+        const indice = arregloUsuario.findIndex(usuario => usuario.nombre == usuarioRegistroNombre.value || usuario.nombre == usuarioEntradaNombre.value)
+
+        let tarjeta1 = crearTarjeta(numTarjetaNueva.value, nombreTarjetaNueva.value, vencimientoTarjetaNueva.value, codigoTarjetaNueva.value);
+
+
+        let usuarioInstancia = new Usuario( arregloUsuario[indice].nombre, arregloUsuario[indice].contraseña, arregloUsuario[indice].tarjeta)
+       usuarioInstancia.agregarTarjetas(tarjeta1)
+
+       console.log(usuarioInstancia)
+
+    }
+}

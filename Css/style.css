@@ -803,6 +803,61 @@ html {
 .html-form body main .main-config .medioPago-cerrarSesion .desaparecerTarjeta {
   display: none;
 }
+.html-form body main .main-config .medioPago-cerrarSesion .formTarjetaNueva {
+  display: flex;
+  justify-content: center;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .formTarjetaNueva form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  gap: 15px;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .formTarjetaNueva form input {
+  outline: none;
+  background-color: #576c89;
+  border: #576c89 solid 1px;
+  border-radius: 5%;
+  padding: 4px;
+  padding-right: 25%;
+  color: #e4ffc6;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .formTarjetaNueva form .botonSubmit {
+  width: 20%;
+  background-color: #576c89;
+  color: white;
+  border: white inset 1px;
+  border-radius: 5%;
+  padding: 4px;
+  padding-right: 15%;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .formTarjetaNueva form input::placeholder {
+  border: 0px;
+  color: white;
+  font-family: "Nunito", sans-serif;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .formTarjetaNueva form input:focus {
+  outline: none;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .formTarjetaNueva form p {
+  color: white;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-radius: 5%;
+  background-color: red;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.html-form body main .main-config .medioPago-cerrarSesion .formTarjetaNueva form .disable-p {
+  display: none;
+}
 
 
 

@@ -316,7 +316,7 @@
             <div class="primeros2">
               <div>
                 <h3>Añadir tarjeta</h3>
-                <button>click aqui</button>
+                <button id="btnAgregarTarjetas">click aqui</button>
               </div>
     
               <div>
@@ -339,35 +339,17 @@
             </section>
         
             <section class="desaparecerTarjeta" id="seccionMirarTarjetas">
-              <div>
-                <h3>Nombre tarjeta: </h3>
-                <p>Gonzalo Martinez</p>
-              </div>
+            </section>
 
-              <div>
-                <h3>Nombre tarjeta: </h3>
-                <p>Gonzalo Martinezasdasdsadsadas</p>
-              </div>
-
-              <div>
-                <h3>Nombre tarjeta: </h3>
-                <p>Gonzalo Martinezasdasdsadsadas</p>
-              </div>
-
-              <div>
-                <h3>Nombre tarjeta: </h3>
-                <p>Gonzalo Martinezasdasdsadsadas</p>
-              </div>
-
-              <div>
-                <h3>Nombre tarjeta: </h3>
-                <p>Gonzalo Martinezasdasdsadsadas</p>
-              </div>
-
-              <div>
-                <h3>Nombre tarjeta: </h3>
-                <p>Gonzalo Martinezasdasdsadsadas</p>
-              </div>
+            <section class="desaparecerTarjeta" id="seccionAgregarTarjetas">
+              <form id="formCardNueva">
+                <input type="text" placeholder="Número tarjeta" id="numTarjetaNueva">
+                <input type="text" placeholder="Nombre tarjeta" id="nombreTarjetaNueva">
+                <input type="text" placeholder="Vencimiento tarjeta" id="vencimientoTarjetaNueva">
+                <input type="text" placeholder="Codigo de seguridad" id="codigoTarjetaNueva">
+                <input type="submit" value="Enviar" class="botonSubmit" id="btnSubmit">
+                <p id="texto-fallido-nuevo" class="disable-p"><i class="fa-solid fa-triangle-exclamation"></i> Complete todos los campos</p>            
+              </form>
             </section>
 
             <div class="volver-button">
