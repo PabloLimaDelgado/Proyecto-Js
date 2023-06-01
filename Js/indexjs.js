@@ -4,17 +4,30 @@ class Usuario{
     constructor(nombre, contraseña, tarjeta){
         this.nombre = nombre
         this.contraseña = contraseña
-        this.tarjetas = [tarjeta]
+        this.tarjetas = tarjeta
     }
 
     agregarTarjetas(tarjeta){
         this.tarjetas.push(tarjeta)
         this.actualizarLocalStorage();
+        alert("Se ha ingresado correctamente la tarjeta")
+    }
+
+    quitarTarjeta(codigoSeguridad) {
+        const indiceTarjeta = this.tarjetas.findIndex((tarjeta) => tarjeta.codigoSeguridadTarjeta == codigoSeguridad);
+        if (indiceTarjeta != -1) {
+          this.tarjetas.splice(indiceTarjeta, 1);
+          this.actualizarLocalStorage();
+          alert("Se ha quitado con exito la tarjeta")
+        }
+        else{
+            alert("Codigo incorrecto")
+        }
     }
 
     actualizarLocalStorage() {
         const indice = arregloUsuario.findIndex((usuario) => usuario.nombre === this.nombre);
-        if (indice !== -1) {
+        if (indice != -1) {
           arregloUsuario[indice].tarjetas = this.tarjetas;
           localStorage.setItem('usuarios', JSON.stringify(arregloUsuario));
         }
@@ -36,7 +49,7 @@ function crearTarjeta(cardNum, cardName, cardVencimiento, cardCode){
 }
 
 function crearUsuario(user, password, tarjeta) {
-    let usuario = new Usuario(user, password, tarjeta);
+    let usuario = new Usuario(user, password, [tarjeta]);
     arregloUsuario.push(usuario); // Agregar usuario al array
     localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
     return usuario;
@@ -64,6 +77,10 @@ registrase.addEventListener('click', (event) => {
     formularioRegistro.classList.remove('inicio-disable')
     formularioRegistro.classList.add('registro')
     btnDos.classList.add('disable')
+
+    let userA = document.getElementById('usuarioEntrada')
+
+    userA.value = ""
 });
 
 btnVolverInicioSesion.addEventListener('click', (event) => {
@@ -76,7 +93,7 @@ btnVolverInicioSesion.addEventListener('click', (event) => {
 
 })
 
-const usuarioRegistroNombre = document.getElementById('inputUsuarioR')
+let usuarioRegistroNombre = document.getElementById('inputUsuarioR')
 const usuarioRegistroContraseña = document.getElementById('inputContraseñaR')
 const usuarioTarjetaNum = document.getElementById('numTarjetaR')
 const usuarioTarjetaNombre = document.getElementById('nombreTarjetaR')
@@ -133,6 +150,8 @@ entrar.addEventListener('click', (event) => {
     const userA = document.getElementById('usuarioEntrada')
     const passwordA = document.getElementById('contraseñaEntrada')
     const rellenarCampos = document.getElementById('texto-fallido-ingreso')
+
+    usuarioRegistroNombre.value = ""
 
     arregloUsuario.forEach( (user) =>{
         if(userA.value == user.nombre && passwordA.value == user.contraseña){
@@ -221,6 +240,11 @@ btnVolverCongif.addEventListener('click', () => {
     seccionAgregarTarjetas.classList.remove('formTarjetaNueva')
     
     textoFallidoNuevo.classList.add('disable-p')
+
+    seccionQuitarTarjetas.classList.add('desaparecerTarjeta')
+    seccionQuitarTarjetas.classList.remove('quitarTarjeta')
+
+    textoFallidoQuitar.classList.add('disable-p')
 })
 
 
@@ -262,6 +286,8 @@ btnMirarTarjetas.addEventListener('click', () => {
 
     const usuarioEntradaNombre = document.getElementById('usuarioEntrada')
     const indice = arregloUsuario.findIndex(usuario => usuario.nombre == usuarioRegistroNombre.value || usuario.nombre == usuarioEntradaNombre.value)
+
+
 
     arregloUsuario[indice].tarjetas.forEach((tarjeta) => {
         seccionMirarTarjetas.innerHTML += `
@@ -319,10 +345,57 @@ function validarForm(event){
         const usuarioEntradaNombre = document.getElementById('usuarioEntrada')
         const indice = arregloUsuario.findIndex(usuario => usuario.nombre == usuarioRegistroNombre.value || usuario.nombre == usuarioEntradaNombre.value)
 
+
+
         let tarjeta1 = crearTarjeta(numTarjetaNueva.value, nombreTarjetaNueva.value, vencimientoTarjetaNueva.value, codigoTarjetaNueva.value);
-        let usuarioIntancia = new Usuario( arregloUsuario[indice].nombre, arregloUsuario[indice].contraseña, arregloUsuario[indice].tarjeta)
+        let usuarioIntancia = new Usuario( arregloUsuario[indice].nombre, arregloUsuario[indice].contraseña, arregloUsuario[indice].tarjetas)
 
         usuarioIntancia.agregarTarjetas(tarjeta1)
 
+        seccionAgregarTarjetas.classList.add('desaparecerTarjeta')
+        seccionAgregarTarjetas.classList.remove('formTarjetaNueva')
+
+        seccionAjusteUsuario.classList.add('primer-ajuste-usuario')
+        seccionAjusteUsuario.classList.remove('desaparecer-primer-ajuste-usuario')
+    }
+}
+
+const btnQuitarTarjetas = document.getElementById('btnQuitarTarjetas')
+const seccionQuitarTarjetas = document.getElementById('seccionQuitarTarjetas')
+
+btnQuitarTarjetas.addEventListener('click', () => {
+    seccionAjusteUsuario.classList.remove('primer-ajuste-usuario')
+    seccionAjusteUsuario.classList.add('desaparecer-primer-ajuste-usuario')
+    seccionQuitarTarjetas.classList.remove('desaparecerTarjeta')
+    seccionQuitarTarjetas.classList.add('quitarTarjeta')
+
+})
+
+const formCardQuitar = document.getElementById('formCardQuitar')
+const textoFallidoQuitar = document.getElementById('texto-fallido-quitar')
+
+formCardQuitar.addEventListener("submit", validarForm2)
+
+function validarForm2(event){
+    event.preventDefault()
+
+    const codigoTarjetaQuitar = document.getElementById('codigoTarjetaQuitar')
+
+    if(codigoTarjetaQuitar.value == ""){
+        textoFallidoQuitar.classList.remove('disable-p')
+    }
+    else{
+        const usuarioEntradaNombre = document.getElementById('usuarioEntrada')
+        const indice = arregloUsuario.findIndex(usuario => usuario.nombre == usuarioRegistroNombre.value || usuario.nombre == usuarioEntradaNombre.value)
+
+        let usuarioIntancia = new Usuario( arregloUsuario[indice].nombre, arregloUsuario[indice].contraseña, arregloUsuario[indice].tarjetas)
+
+        usuarioIntancia.quitarTarjeta(codigoTarjetaQuitar.value)
+
+        seccionQuitarTarjetas.classList.add('desaparecerTarjeta')
+        seccionQuitarTarjetas.classList.remove('quitarTarjeta')
+
+        seccionAjusteUsuario.classList.add('primer-ajuste-usuario')
+        seccionAjusteUsuario.classList.remove('desaparecer-primer-ajuste-usuario')
     }
 }

@@ -322,7 +322,7 @@
     
               <div>
                 <h3>Quitar tarjeta</h3>
-                <button>click aqui</button>
+                <button id="btnQuitarTarjetas">click aqui</button>
               </div>
             </div>
 
@@ -351,6 +351,20 @@
                 <input type="submit" value="Enviar" class="botonSubmit" id="btnSubmit">
                 <p id="texto-fallido-nuevo" class="disable-p"><i class="fa-solid fa-triangle-exclamation"></i> Complete todos los campos</p>            
               </form>
+            </section>
+
+
+            <section class="desaparecerTarjeta" id="seccionQuitarTarjetas">
+              <section>
+                <h3>Codigo que desea retirar:</h3>
+                <form id="formCardQuitar">
+                  <input type="text" placeholder="" id="codigoTarjetaQuitar">
+                  <input type="submit" value="Enviar" class="botonSubmit" id="">  
+                </form>
+              </section>
+              <section>
+                <p id="texto-fallido-quitar" class="disable-p"><i class="fa-solid fa-triangle-exclamation"></i>Ponga el codigo de seguridad</p> 
+              </section>
             </section>
 
             <div class="volver-button">
