@@ -21,19 +21,35 @@ async function crearUsuario1(producto){
         }
     })
     const data = await resp.json()
+    const idUsuario = data.id;
+
     traerUsuarios()
 }
 
 async function crearTarjeta1(tarjeta){
-    const resp = await fetch(urlUsuario, {
-        method: "POST",
-        body: JSON.stringify(tarjeta),
-        headers: {
-            "Content-Type": "application/JSON",
-        }
-    })
-    const data = await resp.json()
+    const data = await resp.json();
+    const idUsuario = data.id;
+
+    const resp = await fetch(`${urlUsuario}/${idUsuario}`);
+    const usuario = await resp.json();
+  
+    // Agregar la nueva tarjeta al arreglo de tarjetas del usuario
+    //usuario.tarjetas.push(tarjeta);
+  
+    // Actualizar los detalles del usuario en MockAPI
+    await fetch(`${urlUsuario}/${idUsuario}`, {
+      method: "PUT",
+      body: JSON.stringify(usuario),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  
+    // Mostrar un mensaje de éxito u otra lógica adicional si es necesario
+    console.log("Tarjeta agregada al usuario con éxito");
+
 }
+
 
 class Usuario{
     constructor(nombre, contrasenia, tarjeta){
@@ -45,7 +61,7 @@ class Usuario{
     agregarTarjetas(tarjeta){
         this.tarjetas.push(tarjeta)
         this.actualizarLocalStorage();
-        crearTarjeta1(tarjeta)
+        crearTarjeta1(tarjeta);
 
         Swal.fire({
             icon: 'success',
@@ -112,6 +128,7 @@ function crearTarjeta(cardNum, cardName, cardVencimiento, cardCode){
 function crearUsuario(user, password, tarjeta) {
     let usuario = new Usuario(user, password, [tarjeta]);
     crearUsuario1(usuario)
+    arregloUsuario.push(usuario)
     localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
     return usuario;
 }
