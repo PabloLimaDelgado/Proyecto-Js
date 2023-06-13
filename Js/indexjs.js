@@ -1,16 +1,61 @@
 let arregloUsuario = JSON.parse(localStorage.getItem('usuarios')) || [];
+const urlUsuario = "https://64877b09beba62972790b5fd.mockapi.io/jssw/1/usuario"
+
+function traerUsuarios(){
+    fetch(urlUsuario)
+    .then((res) => res.json())
+    .then((data) => {
+        data.forEach((usuario) => {
+            arregloUsuario.push(usuario);
+        })
+    });
+
+}
+
+async function crearUsuario1(producto){
+    const resp = await fetch(urlUsuario, {
+        method: "POST",
+        body: JSON.stringify(producto),
+        headers: {
+            "Content-Type": "application/JSON",
+        }
+    })
+    const data = await resp.json()
+    traerUsuarios()
+}
+
+async function crearTarjeta1(tarjeta){
+    const resp = await fetch(urlUsuario, {
+        method: "POST",
+        body: JSON.stringify(tarjeta),
+        headers: {
+            "Content-Type": "application/JSON",
+        }
+    })
+    const data = await resp.json()
+}
 
 class Usuario{
-    constructor(nombre, contraseña, tarjeta){
+    constructor(nombre, contrasenia, tarjeta){
         this.nombre = nombre
-        this.contraseña = contraseña
+        this.contrasenia = contrasenia
         this.tarjetas = tarjeta
     }
 
     agregarTarjetas(tarjeta){
         this.tarjetas.push(tarjeta)
         this.actualizarLocalStorage();
-        alert("Se ha ingresado correctamente la tarjeta")
+        crearTarjeta1(tarjeta)
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Su tarjeta se agrego con exito',
+            text: 'Presione ok para avanzar',
+            color: '#e4ffc6',
+            background: 'rgba(87, 108, 137)',
+            iconColor: '#b3ff96',
+            confirmButtonColor: 'rgb(74, 74, 74)',
+        })
     }
 
     quitarTarjeta(codigoSeguridad) {
@@ -18,10 +63,26 @@ class Usuario{
         if (indiceTarjeta != -1) {
           this.tarjetas.splice(indiceTarjeta, 1);
           this.actualizarLocalStorage();
-          alert("Se ha quitado con exito la tarjeta")
+          Swal.fire({
+            icon: 'success',
+            title: 'Su tarjeta ha sido eliminada con exito',
+            text: 'Presione ok para avanzar',
+            color: '#e4ffc6',
+            background: 'rgba(87, 108, 137)',
+            iconColor: '#b3ff96',
+            confirmButtonColor: 'rgb(74, 74, 74)',
+        })
         }
         else{
-            alert("Codigo incorrecto")
+            Swal.fire({
+                icon: 'error',
+                title: 'No se encontro esa tarjeta',
+                text: 'Presione ok para avanzar',
+                color: '#e4ffc6',
+                background: 'rgba(87, 108, 137)',
+                iconColor: '#ff4242',
+                confirmButtonColor: 'rgb(74, 74, 74)',
+            })
         }
     }
 
@@ -50,7 +111,7 @@ function crearTarjeta(cardNum, cardName, cardVencimiento, cardCode){
 
 function crearUsuario(user, password, tarjeta) {
     let usuario = new Usuario(user, password, [tarjeta]);
-    arregloUsuario.push(usuario); // Agregar usuario al array
+    crearUsuario1(usuario)
     localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
     return usuario;
 }
@@ -118,7 +179,9 @@ function programaPrincipal(e){
     const cardCode = usuarioTrjetaCodigo.value;
 
     if(usuarioRegistroNombre.value == "" || usuarioRegistroContraseña.value == "" || usuarioTarjetaNum.value == "" || usuarioTarjetaNombre.value == "" || usuarioTarjetaVencimiento.value == "" || usuarioTrjetaCodigo.value == ""){
-        rellenarCampos.classList.remove('disable-p')
+        setTimeout( () => {
+            rellenarCampos.classList.remove('disable-p')
+        }, 900)
     }
     else{
         let tarjeta = crearTarjeta(cardNum, cardName, cardVencimiento, cardCode);
@@ -146,6 +209,7 @@ function programaPrincipal(e){
 
 entrar.addEventListener('click', (event) => {
     event.preventDefault()
+
     let userFound = false
     const userA = document.getElementById('usuarioEntrada')
     const passwordA = document.getElementById('contraseñaEntrada')
@@ -153,16 +217,32 @@ entrar.addEventListener('click', (event) => {
 
     usuarioRegistroNombre.value = ""
 
-    arregloUsuario.forEach( (user) =>{
-        if(userA.value == user.nombre && passwordA.value == user.contraseña){
-            userFound = true
-        }
-    })
+    const verificarEntrada = () =>{
+        return new Promise((resolve, reject) => {
+            setTimeout( () => {
+                arregloUsuario.forEach( (user) =>{
+                    if(userA.value == user.nombre && passwordA.value == user.contrasenia){
+                        userFound = true
+                    }
+                })
 
-    if(userFound == false){
-        rellenarCampos.classList.remove('desaparecer-p')
+                if(userFound == false){
+                    resolve()
+                }else{
+                    reject()
+                }
+            }, 1000)
+        })
     }
-    else{
+
+    verificarEntrada()
+    .then(() => {
+
+        setTimeout( () => {
+            rellenarCampos.classList.remove('desaparecer-p')
+        }, 900)
+    })
+    .catch(() => {
         seccionInicioPag.classList.add('disable')
         headerPrincipio.classList.remove('desaparecer')
         mainPrincipio.classList.remove('desaparecer')
@@ -180,7 +260,7 @@ entrar.addEventListener('click', (event) => {
         footerInicio.classList.add('desaparecer')
 
         cuerpo.classList.remove('body-inicio')
-    }
+    });
 })
 
 const btnAjuste = document.getElementById('btnAjuste')
@@ -253,25 +333,58 @@ const btnCerrarSesion = document.getElementById('btnCerrarSesion')
 btnCerrarSesion.addEventListener('click', () => {
     const rellenarCampos1 = document.getElementById('texto-fallido-ingreso')
 
-    mainConfig.classList.remove('main-config')
-    mainConfig.classList.add('desaparecer')
+    Swal.fire({
+        title: '¿Esta seguro que desea cerrar sesión?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: 'rgb(74, 74, 74)',
+        cancelButtonColor: 'white',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, quiero salir',
+        reverseButtons: true,
+        position: 'center',
+        iconColor: '#ffc61a',
+        color: '#e4ffc6',
+        background: 'rgba(87, 108, 137)',
+        customClass: {
+            confirmButton: 'my-confirm-button-class',
+            cancelButton: 'my-cancel-button-class'
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Su sesión fue cerrada con exito',
+                icon: 'success',
+                color: '#e4ffc6',
+                background: 'rgba(87, 108, 137)',
+                iconColor: '#b3ff96',
+                confirmButtonColor: 'rgb(74, 74, 74)',
 
-    mainInicio.classList.remove('desaparecer')
-    mainInicio.classList.add('main-init')
+            })
 
-    seccionInicioPag.classList.remove('disable')
+            mainConfig.classList.remove('main-config')
+            mainConfig.classList.add('desaparecer')
+        
+            mainInicio.classList.remove('desaparecer')
+            mainInicio.classList.add('main-init')
+        
+            seccionInicioPag.classList.remove('disable')
+        
+            rellenarCampos1.classList.add('desaparecer-p')
+            rellenarCampos.classList.add('disable-p')
+        
+            formularioInscripcion.classList.remove('inicio-disable')
+            formularioInscripcion.classList.add('inicio')
+        
+            formularioRegistro.classList.remove('registro')
+            formularioRegistro.classList.add('inicio-disable')
+        
+            btnDos.classList.add('botones')
+            btnDos.classList.remove('disable')
+        }
+      })
 
-    rellenarCampos1.classList.add('desaparecer-p')
-    rellenarCampos.classList.add('disable-p')
 
-    formularioInscripcion.classList.remove('inicio-disable')
-    formularioInscripcion.classList.add('inicio')
-
-    formularioRegistro.classList.remove('registro')
-    formularioRegistro.classList.add('inicio-disable')
-
-    btnDos.classList.add('botones')
-    btnDos.classList.remove('disable')
 })
 
 const btnMirarTarjetas = document.getElementById('btnMirarTarjetas')
@@ -339,7 +452,9 @@ function validarForm(event){
     const codigoTarjetaNueva = document.getElementById('codigoTarjetaNueva')
 
     if(numTarjetaNueva.value == "" || nombreTarjetaNueva.value == "" || vencimientoTarjetaNueva.value == "" || codigoTarjetaNueva.value == ""){
-        textoFallidoNuevo.classList.remove('disable-p')
+        setTimeout( () => {
+            textoFallidoNuevo.classList.remove('disable-p')
+        }, 900)
     }
     else{
         const usuarioEntradaNombre = document.getElementById('usuarioEntrada')
@@ -348,7 +463,7 @@ function validarForm(event){
 
 
         let tarjeta1 = crearTarjeta(numTarjetaNueva.value, nombreTarjetaNueva.value, vencimientoTarjetaNueva.value, codigoTarjetaNueva.value);
-        let usuarioIntancia = new Usuario( arregloUsuario[indice].nombre, arregloUsuario[indice].contraseña, arregloUsuario[indice].tarjetas)
+        let usuarioIntancia = new Usuario( arregloUsuario[indice].nombre, arregloUsuario[indice].contrasenia, arregloUsuario[indice].tarjetas)
 
         usuarioIntancia.agregarTarjetas(tarjeta1)
 
@@ -388,7 +503,7 @@ function validarForm2(event){
         const usuarioEntradaNombre = document.getElementById('usuarioEntrada')
         const indice = arregloUsuario.findIndex(usuario => usuario.nombre == usuarioRegistroNombre.value || usuario.nombre == usuarioEntradaNombre.value)
 
-        let usuarioIntancia = new Usuario( arregloUsuario[indice].nombre, arregloUsuario[indice].contraseña, arregloUsuario[indice].tarjetas)
+        let usuarioIntancia = new Usuario( arregloUsuario[indice].nombre, arregloUsuario[indice].contrasenia, arregloUsuario[indice].tarjetas)
 
         usuarioIntancia.quitarTarjeta(codigoTarjetaQuitar.value)
 

@@ -424,7 +424,7 @@ main .main-principal .peliculas-recomendadas .contenedor-titulo-controles .conte
   background: linear-gradient(0deg, rgba(74, 74, 74, 0.3) 100%, rgb(228, 255, 198) 100%), url("../Vinilo económicos para decoración, Decoravinilos_ Vinilos baratos Murcia.png");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
+  height: 100% !important;
 }
 .html-form .body-inicio header .header-inicio {
   background-color: rgba(74, 74, 74, 0.9);
@@ -930,6 +930,15 @@ html {
 }
 .html-form body main .main-config .medioPago-cerrarSesion .quitarTarjeta section .disable-p {
   display: none;
+}
+
+.my-confirm-button-class {
+  color: white !important;
+  border: none !important;
+}
+
+.my-cancel-button-class {
+  color: rgb(74, 74, 74) !important;
 }
 
 
