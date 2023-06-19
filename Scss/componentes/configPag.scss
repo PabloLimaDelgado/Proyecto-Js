@@ -337,4 +337,43 @@
             }  
         }  
     }
-} 
+}
+
+.editToastify{
+    background: rgb(241,39,39);
+    background: linear-gradient(0deg, rgba(241,39,39,1) 25%, rgba(199,13,13,1) 81%);
+    position: absolute;
+    right: 0%;
+    transform: translate(0px, 0px);
+    margin: 0.5%;
+    padding: 0.5%;
+    margin-top: 1%;
+    border-radius: 5%;
+    color: white;
+}
+
+.editToastifyconfirm{
+    background: rgb(50,241,39);
+    background: linear-gradient(0deg, rgba(50,241,39,1) 25%, rgba(29,119,6,1) 81%);
+    position: absolute;
+    right: 0%;
+    transform: translate(0px, 0px);
+    margin: 0.5%;
+    padding: 0.5%;
+    margin-top: 1%;
+    border-radius: 5%;
+    color: black;
+}
+
+.editToastifyNew{
+    background: rgb(223,241,39);
+    background: linear-gradient(0deg, rgba(223,241,39,1) 25%, rgba(190,194,13,1) 81%);
+    position: absolute;
+    right: 0%;
+    transform: translate(0px, 0px);
+    margin: 0.5%;
+    padding: 0.5%;
+    margin-top: 1%;
+    border-radius: 5%;
+    color: black;
+}

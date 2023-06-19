@@ -932,6 +932,45 @@ html {
   display: none;
 }
 
+.editToastify {
+  background: rgb(241, 39, 39);
+  background: linear-gradient(0deg, rgb(241, 39, 39) 25%, rgb(199, 13, 13) 81%);
+  position: absolute;
+  right: 0%;
+  transform: translate(0px, 0px);
+  margin: 0.5%;
+  padding: 0.5%;
+  margin-top: 1%;
+  border-radius: 5%;
+  color: white;
+}
+
+.editToastifyconfirm {
+  background: rgb(50, 241, 39);
+  background: linear-gradient(0deg, rgb(50, 241, 39) 25%, rgb(29, 119, 6) 81%);
+  position: absolute;
+  right: 0%;
+  transform: translate(0px, 0px);
+  margin: 0.5%;
+  padding: 0.5%;
+  margin-top: 1%;
+  border-radius: 5%;
+  color: black;
+}
+
+.editToastifyNew {
+  background: rgb(223, 241, 39);
+  background: linear-gradient(0deg, rgb(223, 241, 39) 25%, rgb(190, 194, 13) 81%);
+  position: absolute;
+  right: 0%;
+  transform: translate(0px, 0px);
+  margin: 0.5%;
+  padding: 0.5%;
+  margin-top: 1%;
+  border-radius: 5%;
+  color: black;
+}
+
 .my-confirm-button-class {
   color: white !important;
   border: none !important;

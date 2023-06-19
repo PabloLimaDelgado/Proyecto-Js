@@ -7,6 +7,7 @@ function traerUsuarios(){
     .then((data) => {
         data.forEach((usuario) => {
             arregloUsuario.push(usuario);
+            localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
         })
     });
 
@@ -21,35 +22,8 @@ async function crearUsuario1(producto){
         }
     })
     const data = await resp.json()
-    const idUsuario = data.id;
-
     traerUsuarios()
 }
-
-async function crearTarjeta1(tarjeta){
-    const data = await resp.json();
-    const idUsuario = data.id;
-
-    const resp = await fetch(`${urlUsuario}/${idUsuario}`);
-    const usuario = await resp.json();
-  
-    // Agregar la nueva tarjeta al arreglo de tarjetas del usuario
-    //usuario.tarjetas.push(tarjeta);
-  
-    // Actualizar los detalles del usuario en MockAPI
-    await fetch(`${urlUsuario}/${idUsuario}`, {
-      method: "PUT",
-      body: JSON.stringify(usuario),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  
-    // Mostrar un mensaje de éxito u otra lógica adicional si es necesario
-    console.log("Tarjeta agregada al usuario con éxito");
-
-}
-
 
 class Usuario{
     constructor(nombre, contrasenia, tarjeta){
@@ -61,17 +35,13 @@ class Usuario{
     agregarTarjetas(tarjeta){
         this.tarjetas.push(tarjeta)
         this.actualizarLocalStorage();
-        crearTarjeta1(tarjeta);
 
-        Swal.fire({
-            icon: 'success',
-            title: 'Su tarjeta se agrego con exito',
-            text: 'Presione ok para avanzar',
-            color: '#e4ffc6',
-            background: 'rgba(87, 108, 137)',
-            iconColor: '#b3ff96',
-            confirmButtonColor: 'rgb(74, 74, 74)',
-        })
+        Toastify({
+            text: "Se agrego su tarjeta",
+            duration: 1000,
+            gravity: 'top',
+            className: 'editToastifyNew',
+        }).showToast();
     }
 
     quitarTarjeta(codigoSeguridad) {
@@ -79,26 +49,21 @@ class Usuario{
         if (indiceTarjeta != -1) {
           this.tarjetas.splice(indiceTarjeta, 1);
           this.actualizarLocalStorage();
-          Swal.fire({
-            icon: 'success',
-            title: 'Su tarjeta ha sido eliminada con exito',
-            text: 'Presione ok para avanzar',
-            color: '#e4ffc6',
-            background: 'rgba(87, 108, 137)',
-            iconColor: '#b3ff96',
-            confirmButtonColor: 'rgb(74, 74, 74)',
-        })
+
+          Toastify({
+                text: "Se elimino la tarjeta",
+                duration: 1000,
+                gravity: 'top',
+                className: 'editToastifyconfirm',
+            }).showToast();
         }
         else{
-            Swal.fire({
-                icon: 'error',
-                title: 'No se encontro esa tarjeta',
-                text: 'Presione ok para avanzar',
-                color: '#e4ffc6',
-                background: 'rgba(87, 108, 137)',
-                iconColor: '#ff4242',
-                confirmButtonColor: 'rgb(74, 74, 74)',
-            })
+            Toastify({
+                text: "No se encontro la tarjeta",
+                duration: 1000,
+                gravity: 'top',
+                className: 'editToastify',
+            }).showToast();
         }
     }
 
@@ -128,8 +93,6 @@ function crearTarjeta(cardNum, cardName, cardVencimiento, cardCode){
 function crearUsuario(user, password, tarjeta) {
     let usuario = new Usuario(user, password, [tarjeta]);
     crearUsuario1(usuario)
-    arregloUsuario.push(usuario)
-    localStorage.setItem('usuarios', JSON.stringify(arregloUsuario))
     return usuario;
 }
 
@@ -221,6 +184,16 @@ function programaPrincipal(e){
         footerInicio.classList.add('desaparecer')
 
         cuerpo.classList.remove('body-inicio')
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Bienvenido a Starwatch ' + usuario.nombre,
+            text: 'Si desea manejar su cuenta vaya a ajuste',
+            color: '#e4ffc6',
+            background: 'rgba(87, 108, 137)',
+            iconColor: '#b3ff96',
+            confirmButtonColor: 'rgb(74, 74, 74)',
+        })
     }
 }
 
@@ -260,6 +233,8 @@ entrar.addEventListener('click', (event) => {
         }, 900)
     })
     .catch(() => {
+        const userA = document.getElementById('usuarioEntrada')
+
         seccionInicioPag.classList.add('disable')
         headerPrincipio.classList.remove('desaparecer')
         mainPrincipio.classList.remove('desaparecer')
@@ -277,6 +252,16 @@ entrar.addEventListener('click', (event) => {
         footerInicio.classList.add('desaparecer')
 
         cuerpo.classList.remove('body-inicio')
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Bienvenido de vuelta ' + userA.value,
+            text: 'Para manejar su cuenta vaya a ajuste',
+            color: '#e4ffc6',
+            background: 'rgba(87, 108, 137)',
+            iconColor: '#b3ff96',
+            confirmButtonColor: 'rgb(74, 74, 74)',
+        })
     });
 })
 
